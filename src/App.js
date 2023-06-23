@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { SmartHeader } from './SmartHeader';
+import { SmartAside } from './SmartAside';
+import { SmartMainContainer } from './SmartMainContainer';
+import { Footer } from './Footer';
+import { Main } from './Main';
+import { Card } from './Card'
+
+const saludo =() => {
+  console.log('hola mundo')
+  }
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SmartHeader/>
+      <Main >
+      <SmartAside/>
+      <SmartMainContainer>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </SmartMainContainer>
+      </Main>
+      <Footer/>
+    </>
   );
 }
 
