@@ -218,4 +218,6 @@ $RECYCLE.BIN/
 *.jpg
 *.svg
 
+assets/
+
 # End of https://www.toptal.com/developers/gitignore/api/react,node,windows,visualstudiocode,linux

@@ -1,25 +1,24 @@
 import React from 'react';
-import image from '../Cuido_rojo.jpg'
+import image from '../assets/Cuido_rojo.jpg';
 import './Card.css'
 
-
-function Card() {
+function Card(props) {
     return (
-        <div className="rounded-t-xl flex-col w-[203px] bg-[#d1e2e0] m-4 border">
-            <picture className="rounded-l-xl">
-                <img className="rounded-t-xl object-fill" src={ image } alt={image.alt} />
-            </picture>
+        <div className="rounded-t-xl flex-col bg-[#d1e2e0] border">
+            <div className="rounded-l-xl rounded-t-xl h-24">
+            <img className="w-1/2 object-fill" src={image} alt="" />
+            </div>
             <div className="m-2">
-                <p className="text-xl mb-2">Disponible</p>
-                <p className="text-md">Es un cuido increible</p>
+                <p className="text-xl mb-2"></p>
+                <p className="text-md">{props.name}</p>
                 <div className='flex justify-between w-full'>
                     <div>
                         <p className="text-md">normal price</p>
-                        <p className="text-md">250.000</p>
+                        <p className="text-md text-slate-200">{props.normalPrice}</p>
                     </div>
                     <div>
                         <p className="text-md">Oferta</p>
-                        <p className="text-md">90.000</p>
+                        <p className="text-md">{props.productOferta}</p>
                     </div>
                 </div>
             </div>

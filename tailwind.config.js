@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'DynaPuff': ['DynaPuff']
+      },
+      backgroundImage: {
+        'jumbo': "url('../assets/Cuido_rojo.jpg')",
+      }
+    },
   },
   plugins: [],
 }
