@@ -7,7 +7,7 @@ module.exports = {
         'DynaPuff': ['DynaPuff']
       },
       backgroundImage: {
-        'jumbo': "url('../assets/Cuido_rojo.jpg')",
+        'jumbo': "url('../assets/Jumbo.JPEG')",
       }
     },
   },

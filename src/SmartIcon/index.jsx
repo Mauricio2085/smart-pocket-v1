@@ -2,7 +2,7 @@ import { ReactComponent as SmartLogo } from "./Smart_Pocket_V2_Logo_Web_200x40px
 
 const SmartIcons = () => {
     return (
-        <span className=" w-40 h-40">
+        <span className=" w-40">
             <SmartLogo/>
         </span>
     );

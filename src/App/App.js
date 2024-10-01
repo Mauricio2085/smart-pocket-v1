@@ -1,4 +1,5 @@
 import { useFetch } from '../useFetch/useFetch';
+import { useEffect } from 'react';
 import { SmartHeader } from '../SmartHeader';
 import { SmartNav } from '../SmartNav'
 import { SmartCategories } from '../SmartCategories';
@@ -8,54 +9,55 @@ import { SmartIcons } from '../SmartIcon';
 import './App.css';
 import { SmartJumbo } from '../SmartJumbo';
 import { SmartPublic } from '../SmartPublic';
+import { Card } from '../Card';
 
 const products = [
   {
     Disponible: true,
     name: 'Cuido',
-    image: <SmartIcons/>,
+    image: 'imagen',
     normalPrice: 250000,
     Oferta: 90000
   },
   {
     Disponible: true,
     name: 'Cuido',
-    image: <SmartIcons/>,
+    image: 'imagen',
     normalPrice: 250000,
     Oferta: 90000
   },
   {
     Disponible: true,
     name: 'Cuido',
-    image: <SmartIcons/>,
+    image: 'imagen',
     normalPrice: 250.000,
     Oferta: 90000
   },
   {
     Disponible: true,
     name: 'Cuido',
-    image: <SmartIcons/>,
+    image: 'imagen',
     normalPrice: 250000,
     Oferta: 90000
   },
   {
     Disponible: true,
     name: 'Cuido',
-    image: <SmartIcons/>,
+    image: 'imagen',
     normalPrice: 250000,
     Oferta: 90000
   },
   {
     Disponible: true,
     name: 'Cuido',
-    image: <SmartIcons/>,
+    image: 'imagen',
     normalPrice: 250000,
     Oferta: 90000
   },
   {
     Disponible: true,
     name: 'Cuido',
-    image: <SmartIcons/>,
+    image: 'imagen',
     normalPrice: 250000,
     Oferta: 90000
   },
@@ -64,17 +66,17 @@ const products = [
 
 
 const App = () => {
-  // const [data, loading] = useFetch('https://smart-pocket.co')
-
-
+    
   return (
     <>
       <SmartHeader/>
-      <SmartNav />
       <SmartJumbo />
       <Main >
         <SmartCategories />
-        <SmartPublic />
+          <SmartPublic >
+            <Card />
+          </SmartPublic>
+        
       </Main>
       <Footer/>
     </>
