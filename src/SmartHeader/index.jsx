@@ -6,8 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { VscAccount } from "react-icons/vsc";
 
 
-function SmartHeader() {
-    return (
+const SmartHeader = () => { return (
         <header className=" z-10 w-full border-b border-white bg-gradient-to-r from-cyan-500 to-blue-500">
         <nav className=" mx-5 sm:mx-5 xl:mx-36 py-6 xl:py-6 flex flex-col sm:flex sm:flex-col xl:flex xl:flex-col xl:flex-nowrap justify-between xl:justify-between items-start xl:items-center">
             <section className=" w-full md:w-full flex flex-row flex-nowrap md:flex md:flex-row md:justify-between justify-between items-center">
