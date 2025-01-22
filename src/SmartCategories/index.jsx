@@ -26,9 +26,11 @@ function SmartCategories() {
 	}, []);
 	console.log("Categorias: ", categories);
 	return (
-		<section className="md:w-full sm:w-full border-b border-slate-500 lg:mx-40 lg:my-16 lg:flex lg:flex-col lg:flex-wrap drop-shadow-md ">
-			<h1 className=" font-DynaPuff font-semibold text-lg">Categorias</h1>
-			<section className="border-slate-500 my-16 mt-8 flex flex-row flex-wrap justify-between drop-shadow-md ">
+		<section className=" hidden w-full sm:w-full border-b border-slate-500 lg:py-12 lg:flex lg:flex-col lg:flex-wrap drop-shadow-md bg-yellow-100 ">
+			<h1 className=" font-DynaPuff font-semibold text-lg m-auto pb-5">
+				Categorias
+			</h1>
+			<section className=" flex flex-col sm:flex-row sm:flex-wrap md:flex-row lg:flex-row lg:justify-between lg:px-36 border-slate-500 mt-8 drop-shadow-md ">
 				{categories.map((cat) => {
 					const colorRounded = {
 						suave: "bg-cyan-500",
@@ -37,7 +39,7 @@ function SmartCategories() {
 					return (
 						<div
 							key={cat.id_categoria}
-							className=" font-DynaPuff text-sm flex flex-col ite items-center "
+							className=" font-DynaPuff text-sm flex flex-col items-center lg:justify-between "
 						>
 							<h3 className=" mb-4">{cat.nombre_categoria}</h3>
 							<div
