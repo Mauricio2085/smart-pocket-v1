@@ -26,11 +26,11 @@ function SmartCategories() {
 	}, []);
 	console.log("Categorias: ", categories);
 	return (
-		<section className=" hidden w-full sm:w-full border-b border-slate-500 lg:py-12 lg:flex lg:flex-col lg:flex-wrap drop-shadow-md bg-yellow-100 ">
+		<section className=" hidden drop-shadow-md w-full border-b border-slate-500 lg:py-12 lg:flex lg:flex-col lg:flex-wrap lg:px-36 bg-yellow-100 ">
 			<h1 className=" font-DynaPuff font-semibold text-lg m-auto pb-5">
 				Categorias
 			</h1>
-			<section className=" flex flex-col sm:flex-row sm:flex-wrap md:flex-row lg:flex-row lg:justify-between lg:px-36 border-slate-500 mt-8 drop-shadow-md ">
+			<section className=" md:grid md:grid-cols-3 md:gap-2 border-slate-500 md:mt-8 drop-shadow-md ">
 				{categories.map((cat) => {
 					const colorRounded = {
 						suave: "bg-cyan-500",
@@ -52,7 +52,7 @@ function SmartCategories() {
 								<div className="w-40 h-40 rounded-[50%] overflow-hidden">
 									<img
 										src={cat.imagen_categoria}
-										className="font-light font-mono object-contain"
+										className="font-light font-mono w-max object-fill"
 										alt={`Imagen de ${cat.nombre_categoria}`}
 									></img>
 								</div>
