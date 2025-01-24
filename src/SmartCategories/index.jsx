@@ -27,10 +27,10 @@ function SmartCategories() {
 	console.log("Categorias: ", categories);
 	return (
 		<section className=" hidden drop-shadow-md w-full border-b border-slate-500 lg:py-12 lg:flex lg:flex-col lg:flex-wrap lg:px-36 bg-yellow-100 ">
-			<h1 className=" font-DynaPuff font-semibold text-lg m-auto pb-5">
+			<h1 className=" font-DynaPuff font-semibold text-xl m-auto">
 				Categorias
 			</h1>
-			<section className=" md:grid md:grid-cols-3 md:gap-2 border-slate-500 md:mt-8 drop-shadow-md ">
+			<section className=" md:grid md:grid-cols-3 md:gap-2 border-slate-500 md:my-8 drop-shadow-md ">
 				{categories.map((cat) => {
 					const colorRounded = {
 						suave: "bg-cyan-500",
@@ -39,7 +39,7 @@ function SmartCategories() {
 					return (
 						<div
 							key={cat.id_categoria}
-							className=" font-DynaPuff text-sm flex flex-col items-center lg:justify-between "
+							className=" mt-5 font-DynaPuff text-base flex flex-col items-center lg:justify-between "
 						>
 							<h3 className=" mb-4">{cat.nombre_categoria}</h3>
 							<div
@@ -52,7 +52,7 @@ function SmartCategories() {
 								<div className="w-40 h-40 rounded-[50%] overflow-hidden">
 									<img
 										src={cat.imagen_categoria}
-										className="font-light font-mono w-max object-fill"
+										className="font-light text-lg w-max object-fill"
 										alt={`Imagen de ${cat.nombre_categoria}`}
 									></img>
 								</div>
