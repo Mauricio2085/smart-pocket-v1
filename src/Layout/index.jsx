@@ -1,11 +1,15 @@
 import { SmartHeader } from "../SmartHeader";
 import { Footer } from "../Footer";
+import { Outlet } from "react-router-dom";
+import { Main } from "../Main";
 
-const Layout = (props) => {
+const Layout = () => {
 	return (
 		<>
 			<SmartHeader />
-			{props.children}
+			<Main>
+				<Outlet />
+			</Main>
 			<Footer />
 		</>
 	);
