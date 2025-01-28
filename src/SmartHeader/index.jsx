@@ -4,6 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscAccount } from "react-icons/vsc";
+import { NavLink } from "react-router-dom";
 
 const SmartHeader = () => {
 	return (
@@ -16,9 +17,11 @@ const SmartHeader = () => {
 					<SmartIcons />
 					<ul className="flex justify-center items-center">
 						<li className="">
-							<button className=" hidden xl:block xl:w-28 xl:h-10 xl:mr-8 xl:border xl:border-blue-800 xl:rounded-lg font-DynaPuff text-sm ">
-								Iniciar sesión
-							</button>
+							<NavLink to="/login">
+								<button className=" hidden xl:block xl:w-28 xl:h-10 xl:mr-8 xl:border xl:border-blue-800 xl:rounded-lg font-DynaPuff text-sm ">
+									Iniciar sesión
+								</button>
+							</NavLink>
 							<button className=" xl:hidden w-10 h-full pr-2 flex justify-center flex-wrap ">
 								<VscAccount size={28} fill="#7dd3fc" />
 							</button>
