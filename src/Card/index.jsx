@@ -1,45 +1,60 @@
-import { useEffect, useState } from 'react';
-import './Card.css';
+import React from "react";
 
-const Card = () => {
-    const [productos, setProductos] = useState([]);
+const Card = ({
+	idProducto,
+	nombreProducto,
+	imagenProducto,
+	precioVenta,
+	precioOferta,
+}) => {
+	const formattedAmount = (amount) => {
+		return new Intl.NumberFormat("es-CO", {
+			style: "currency",
+			currency: "COP",
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 0,
+		}).format(amount);
+	};
 
-    const getProductos = async () => {
-        const response = await fetch('http://localhost:5000/api/v1/productos');
-        const data = await response.json();
-        setProductos(data);
-        console.log(data);
-    }
-
-    useEffect(() => {
-        getProductos();
-    }, []);
-
-    return (
-        <section>
-            {productos.map(producto => {
-                return (
-                    <div key={producto.id_producto} className="rounded-t-xl flex-col bg-cyan-500 border">
-                    <div className="rounded-l-xl rounded-t-xl h-24">
-                        <img className="w-1/2 object-fill" src={producto.imagen_producto} alt="Imagen" />
-                    </div>
-                    <div className="m-2">
-                    <p className="text-md">{producto.nombre_producto}</p>
-                    <div className='flex justify-between w-full'>
-                    <div>
-                        <p className="text-md">normal price</p>
-                        <p className="text-md text-slate-200">{producto.descripcion}</p>
-                    </div>
-                    <div>
-                        <p className="text-md">Oferta</p>
-                        <p className="text-md">{producto.precio_venta}</p>
-                    </div>
-                </div>
-            </div>
-            </div>
-            )})}
-        </section>
-    );
-    };
+	return (
+		<>
+			<div
+				key={idProducto}
+				className=" w-full mt-5 flex-col self-center bg-slate-100 border"
+			>
+				<div className="w-full h-full">
+					<img
+						className="w-full object-fill"
+						src={imagenProducto}
+						alt="Imagen"
+					/>
+				</div>
+				<div className="h-1/2 flex flex-col justify-between">
+					<p className=" p-2 text-lg">{nombreProducto}</p>
+					<p className=" p-2 text-sm text-green-400">Disponible</p>
+					<div className="flex flex-col justify-between w-full">
+						<div className="flex justify-between w-full">
+							<p className=" p-2 text-[12px]">Precio normal</p>
+							<p className=" p-2 text-[12px]">Oferta</p>
+						</div>
+						<div className="flex flex-col">
+							<div className="flex justify-between w-full">
+								<p className=" p-2 text-[12px]">
+									{formattedAmount(precioVenta)}
+								</p>
+								<p className=" p-2 text-[12px]">
+									{formattedAmount(precioOferta)}
+								</p>
+							</div>
+						</div>
+					</div>
+					<button className="bg-cyan-500 w-full h-10">
+						Consultar producto
+					</button>
+				</div>
+			</div>
+		</>
+	);
+};
 
 export { Card };

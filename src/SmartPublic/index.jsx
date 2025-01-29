@@ -1,11 +1,11 @@
 import React from "react";
 
-function SmartPublic (props) {
-    return(
-        <section className=" mx-36 my-16 flex flex-row border-b border-slate-500 drop-shadow-md ">
-            { props.children }
-        </section>
-    );
-};
+function SmartPublic(props) {
+	return (
+		<section className=" my-5 flex flex-col justify-center lg:mx-36 lg:my-16 lg:grid lg:grid-cols-3 lg:gap-2 md:my-16 md:grid md:grid-cols-2 md:gap-2 ">
+			{props.children}
+		</section>
+	);
+}
 
-export { SmartPublic }
+export { SmartPublic };
