@@ -1,7 +1,7 @@
 import React from "react";
-import { SmartIcons } from "../SmartIcon";
+import { SmartIcons } from "./SmartIcon";
 
-function SmartAside() {
+function Aside() {
 	return (
 		<aside className="flex-col w-[30%] h-[530px] pl-2 pt-2 pb-3 rounded-lg">
 			<section className=" rounded-lg ">
@@ -44,4 +44,4 @@ function SmartAside() {
 	);
 }
 
-export { SmartAside };
+export { Aside };

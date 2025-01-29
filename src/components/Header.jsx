@@ -1,12 +1,12 @@
 import React from "react";
-import { SmartIcons } from "../SmartIcon";
+import { SmartIcons } from "./SmartIcon";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscAccount } from "react-icons/vsc";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const SmartHeader = () => {
+const Header = () => {
 	return (
 		<header className="w-full border-b border-white bg-gradient-to-r from-cyan-500 to-blue-500">
 			<nav className=" px-5 md:px-36 xl:px-36 lg:px-36 py-5 flex flex-col xl:justify-between ">
@@ -14,14 +14,16 @@ const SmartHeader = () => {
 					<div className=" w-10 h-full lg:hidden xl:hidden flex justify-center items-center md:justify-center md:items-center">
 						<GiHamburgerMenu size={28} fill="#7dd3fc" />
 					</div>
-					<SmartIcons />
+					<Link to="/">
+						<SmartIcons />
+					</Link>
 					<ul className="flex justify-center items-center">
 						<li className="">
-							<NavLink to="/login">
+							<Link to="/login">
 								<button className=" hidden xl:block xl:w-28 xl:h-10 xl:mr-8 xl:border xl:border-blue-800 xl:rounded-lg font-DynaPuff text-sm ">
 									Iniciar sesión
 								</button>
-							</NavLink>
+							</Link>
 							<button className=" xl:hidden w-10 h-full pr-2 flex justify-center flex-wrap ">
 								<VscAccount size={28} fill="#7dd3fc" />
 							</button>
@@ -49,4 +51,4 @@ const SmartHeader = () => {
 	);
 };
 
-export { SmartHeader };
+export { Header };

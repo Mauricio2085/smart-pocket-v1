@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { Card } from "./Card";
-import { useFetch } from "./useFetch/useFetch";
+import { Card } from "../components/Card";
+import { useFetch } from "../Hooks/useFetch";
 
 const CategoryPage = () => {
 	const { categoryName, categoryId } = useParams();

@@ -1,5 +1,3 @@
-import "./Footer.css";
-
 function Footer() {
 	return (
 		<footer className="w-full h-40 bg-gradient-to-r from-cyan-500 to-blue-500">
