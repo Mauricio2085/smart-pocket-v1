@@ -39,7 +39,7 @@ function SmartCategories() {
 					};
 					return (
 						<NavLink
-							to={`categories/${cat.nombre_categoria}/${cat.id_categoria}`}
+							to={`categorias/${cat.nombre_categoria}/${cat.id_categoria}`}
 						>
 							<div
 								key={cat.id_categoria}
