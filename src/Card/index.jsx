@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./Card.css";
 
 const Card = () => {
 	const [productos, setProductos] = useState([]);
@@ -15,39 +14,58 @@ const Card = () => {
 		getProductos();
 	}, []);
 
+	const formattedAmount = (amount) => {
+		return new Intl.NumberFormat("es-CO", {
+			style: "currency",
+			currency: "COP",
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 0,
+		}).format(amount);
+	};
+
 	return (
 		<>
-			{productos.map((producto) => {
-				return (
-					<div
-						key={producto.id_producto}
-						className=" w-72 flex-col self-center bg-cyan-500 border"
-					>
-						<div className=" h-24">
-							<img
-								className="w-1/2 object-fill"
-								src={producto.imagen_producto}
-								alt="Imagen"
-							/>
-						</div>
-						<div className="m-2">
-							<p className="text-md">{producto.nombre_producto}</p>
-							<div className="flex justify-between w-full">
-								<div>
-									<p className="text-md">normal price</p>
-									<p className="text-md text-slate-200">
-										{producto.descripcion}
-									</p>
+			<section className="w-full px-8 grid xl:grid-cols-3seeeeh xl:gap-6 border-slate-100 md:my-8 drop-shadow-md ">
+				{productos.map((product, index) => {
+					return (
+						<div
+							key={product.id_producto}
+							className=" w-full flex-col self-center bg-slate-100 border"
+						>
+							<div className="w-full h-full">
+								<img
+									className=" object-contain h-40 m-auto"
+									src={product.imagen_producto}
+									alt="Imagen"
+								/>
+							</div>
+							<div className="h-1/2 flex flex-col justify-between">
+								<p className=" p-2 text-lg">{product.nombre_producto}</p>
+								<p className=" p-2 text-sm">Disponible</p>
+								<div className="flex flex-col justify-between w-full">
+									<div className="flex justify-between w-full">
+										<p className=" p-2 text-[12px]">Precio normal</p>
+										<p className=" p-2 text-[12px]">Oferta</p>
+									</div>
+									<div className="flex flex-col">
+										<div className="flex justify-between w-full">
+											<p className=" p-2 text-[12px]">
+												{formattedAmount(product.precio_venta)}
+											</p>
+											<p className=" p-2 text-[12px]">
+												{formattedAmount(product.precio_venta)}
+											</p>
+										</div>
+									</div>
 								</div>
-								<div>
-									<p className="text-md">Oferta</p>
-									<p className="text-md">{producto.precio_venta}</p>
-								</div>
+								<button className="bg-cyan-500 w-full h-10">
+									Agregar al carrito
+								</button>
 							</div>
 						</div>
-					</div>
-				);
-			})}
+					);
+				})}
+			</section>
 		</>
 	);
 };
