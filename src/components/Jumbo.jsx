@@ -1,4 +1,4 @@
-function SmartJumbo() {
+function Jumbo() {
 	return (
 		<section className="w-full h-80 border-b border-white bg-gradient-to-r from-cyan-500 to-blue-500">
 			<div className=" w-full h-full bg-yellow-100"></div>
@@ -6,4 +6,4 @@ function SmartJumbo() {
 	);
 }
 
-export { SmartJumbo };
+export { Jumbo };
