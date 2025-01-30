@@ -1,6 +1,6 @@
 import React from "react";
 
-function Nav() {
+const Nav = () => {
 	return (
 		<nav className="w-full h-10 flex flex-row items-center border border-yellow-300 bg-yellow-100 ">
 			<div className=" w-full mx-36 ">
@@ -10,6 +10,6 @@ function Nav() {
 			</div>
 		</nav>
 	);
-}
+};
 
 export { Nav };

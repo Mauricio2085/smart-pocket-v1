@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
+import { Loading } from "./Loading";
 
-function Categories() {
-	const { data } = useFetch("http://localhost:5000/api/v1/categorias");
+const Categories = () => {
+	const { data, loading, error } = useFetch(
+		"http://localhost:5000/api/v1/categorias"
+	);
+
+	if (loading) return <Loading />;
+	if (error) return <h1>Error</h1>;
 
 	return (
 		<section className=" hidden drop-shadow-md w-full border-b border-slate-500 lg:py-12 lg:flex lg:flex-col lg:flex-wrap lg:px-36 bg-yellow-100 ">
@@ -47,6 +53,6 @@ function Categories() {
 			</section>
 		</section>
 	);
-}
+};
 
 export { Categories };

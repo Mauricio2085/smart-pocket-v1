@@ -15,7 +15,7 @@ const Header = () => {
 						<GiHamburgerMenu size={28} fill="#7dd3fc" />
 					</div>
 					<Link to="/">
-						<SmartIcons />
+						<SmartIcons iconType="logo" />
 					</Link>
 					<ul className="flex justify-center items-center">
 						<li className="">
