@@ -2,13 +2,8 @@ import { SmartIcons } from "./SmartIcon";
 
 const Loading = () => {
 	return (
-		<div
-			className="w-screen lg:h-screen animate-pulse flex flex-col items-center justify-center"
-			style={{
-				height: "calc(100vh - 22.7rem)",
-			}}
-		>
-			<SmartIcons iconType="loading" />
+		<div className="w-screen h-[calc(100vh-22.3rem)] md:h-[calc(100vh-35.3rem)] lg:md:h-[calc(100vh-27.8rem)] animate-pulse flex flex-col items-center justify-center">
+			<SmartIcons iconType={"loading"} />
 		</div>
 	);
 };

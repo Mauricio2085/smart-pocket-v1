@@ -8,8 +8,8 @@ const CategoryPage = () => {
 	const { data, loading, error } = useFetch(
 		`http://localhost:5000/api/v1/categorias/${categoryName}/${categoryId}`
 	);
-	if (loading) return <Loading />;
-	if (error) return <h1>Error</h1>;
+	if (!!loading) return <Loading />;
+	if (!!error) return <h1>Error</h1>;
 
 	return (
 		<>
@@ -32,7 +32,7 @@ const CategoryPage = () => {
 							);
 						})}
 					</section>
-					<section className=" lg:h-60 text-2xl">paginacion</section>
+					<section className="lg:h-60 text-2xl">paginacion</section>
 				</div>
 			</section>
 		</>
