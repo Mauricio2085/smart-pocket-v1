@@ -8,15 +8,15 @@ const Categories = () => {
 		"http://localhost:5000/api/v1/categorias"
 	);
 
-	if (loading) return <Loading />;
-	if (error) return <h1>Error</h1>;
+	if (!!loading) return <Loading />;
+	if (!!error) return <h1>Error</h1>;
 
 	return (
-		<section className=" hidden drop-shadow-md w-full border-b border-slate-500 lg:py-12 lg:flex lg:flex-col lg:flex-wrap lg:px-36 bg-yellow-100 ">
+		<section className=" hidden drop-shadow-md w-full border-b border-slate-500 lg:py-12 lg:flex lg:flex-col lg:flex-wrap md:px-20 lg:px-36 bg-yellow-100 ">
 			<h1 className=" font-DynaPuff font-semibold text-xl m-auto">
 				Categorias
 			</h1>
-			<section className=" md:grid md:grid-cols-3 md:gap-2 border-slate-500 md:my-8 drop-shadow-md ">
+			<section className=" hidden md:grid md:grid-cols-3 md:gap-2 border-slate-500 md:my-8 drop-shadow-md ">
 				{data.map((cat) => {
 					const colorRounded = {
 						suave: "bg-cyan-500",

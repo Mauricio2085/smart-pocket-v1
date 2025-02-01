@@ -1,14 +1,14 @@
-import { ReactComponent as SmartLogo } from "../assets/Smart_Pocket_V2_Logo_Web_200x40px.svg";
+import { SmartLogo } from "./SmartLogo";
 import { LoadingImage } from "./LoadingImage";
+import { FooterImage } from "./FooterImage";
 
 const SmartIcons = ({ iconType }) => {
-	if (iconType === "loading") {
-		return <LoadingImage />;
-	}
 	return (
-		<div className="w-60">
-			<SmartLogo />
-		</div>
+		<>
+			{iconType === "loading" ? <LoadingImage /> : null}
+			{iconType === "footer" ? <FooterImage /> : null}
+			{iconType === "logo" ? <SmartLogo /> : null}
+		</>
 	);
 };
 

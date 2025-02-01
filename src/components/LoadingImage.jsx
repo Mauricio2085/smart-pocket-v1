@@ -4,7 +4,7 @@ const LoadingImage = () => {
 	return (
 		<img
 			src={loadingImage}
-			className="w-1/2 lg:w-[30%]"
+			className="w-1/3 lg:w-1/6 "
 			alt="Smart Pocket icon"
 		/>
 	);
