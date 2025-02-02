@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
 	return (
-		<header className="w-full border-b border-white bg-gradient-to-r from-cyan-500 to-blue-500">
+		<header className="w-full bg-gradient-to-r from-cyan-500 to-blue-500">
 			<nav className=" px-5 md:px-20 lg:px-36 xl:px-36 py-5 flex flex-col xl:justify-between ">
 				<section className=" flex flex-row flex-nowrap md:flex md:flex-row md:justify-between justify-between items-center">
 					<div className=" w-10 h-full lg:hidden xl:hidden flex justify-center items-center md:justify-center md:items-center">

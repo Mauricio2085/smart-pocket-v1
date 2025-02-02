@@ -24,27 +24,23 @@ const Card = ({
 			>
 				<div className="w-full h-full">
 					<img
-						className="w-full object-fill"
+						className="w-full h-auto max-w-[300px] object-contain aspect-square rounded-lg"
 						src={imagenProducto}
 						alt="Imagen"
 					/>
 				</div>
-				<div className="h-1/2 flex flex-col justify-between">
-					<p className=" p-2 text-lg">{nombreProducto}</p>
-					<p className=" p-2 text-sm text-green-400">Disponible</p>
+				<div className="h-1/2 p-2 flex flex-col justify-between">
+					<p className=" text-sm">{nombreProducto}</p>
+					<p className=" text-sm text-green-400">Disponible</p>
 					<div className="flex flex-col justify-between w-full">
 						<div className="flex justify-between w-full">
-							<p className=" p-2 text-[12px]">Precio normal</p>
-							<p className=" p-2 text-[12px]">Oferta</p>
+							<p className=" text-[12px]">Precio normal</p>
+							<p className=" text-[12px]">Oferta</p>
 						</div>
-						<div className="flex flex-col">
+						<div className=" p-2 flex flex-col">
 							<div className="flex justify-between w-full">
-								<p className=" p-2 text-[12px]">
-									{formattedAmount(precioVenta)}
-								</p>
-								<p className=" p-2 text-[12px]">
-									{formattedAmount(precioOferta)}
-								</p>
+								<p className=" text-[12px]">{formattedAmount(precioVenta)}</p>
+								<p className=" text-[12px]">{formattedAmount(precioOferta)}</p>
 							</div>
 						</div>
 					</div>
