@@ -17,7 +17,7 @@ function useFetch(url) {
 					return { data };
 				};
 				fetchData();
-			}, 5000);
+			}, 1000);
 		} catch (error) {
 			setError(error);
 		}

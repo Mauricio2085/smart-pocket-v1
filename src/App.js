@@ -23,9 +23,9 @@ const App = () => {
 							element={<CategoryPage />}
 						/>
 					</Route>
-					<Route path="/product-detail" element={<MainLayout />}>
+					<Route path="/productos/product-detail" element={<MainLayout />}>
 						<Route
-							path=":productName/:productId"
+							path=":categoryName/:productId"
 							element={<ProductDetailPage />}
 						/>
 					</Route>
