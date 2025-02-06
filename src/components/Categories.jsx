@@ -36,7 +36,7 @@ const Categories = () => {
 										cat.id_categoria % 2 === 0
 											? colorRounded.suave
 											: colorRounded.fuerte
-									} flex justify-center items-center`}
+									} flex justify-center items-center hover:shadow-cyan-500/50 hover:shadow-md transition delay-150 duration-500 ease-in-out hover:scale-110`}
 								>
 									<div className="w-40 h-40 rounded-[50%] overflow-hidden">
 										<img

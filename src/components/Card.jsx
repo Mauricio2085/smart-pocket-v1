@@ -18,33 +18,37 @@ const Card = ({
 
 	return (
 		<>
-			<div
-				key={idProducto}
-				className=" w-full mt-5 flex-col self-center bg-slate-100 border"
-			>
-				<div className="w-full h-full">
+			<div className="w-full mt-8 rounded-md flex flex-col sm:grid sm:grid-cols-2 sm:gap-4 border border-slate-100 drop-shadow-md hover:shadow-yellow-100/50 hover:shadow-md">
+				<div className="w-full flex justify-center sm:order-1 sm:row-span-3 ">
 					<img
 						className="w-full h-auto max-w-[300px] object-contain aspect-square rounded-lg"
 						src={imagenProducto}
 						alt="Imagen"
 					/>
 				</div>
-				<div className="h-1/2 p-2 flex flex-col justify-between">
-					<p className=" text-sm">{nombreProducto}</p>
-					<p className=" text-sm text-green-400">Disponible</p>
-					<div className="flex flex-col justify-between w-full">
-						<div className="flex justify-between w-full">
-							<p className=" text-[12px]">Precio normal</p>
-							<p className=" text-[12px]">Oferta</p>
-						</div>
-						<div className=" p-2 flex flex-col">
-							<div className="flex justify-between w-full">
-								<p className=" text-[12px]">{formattedAmount(precioVenta)}</p>
-								<p className=" text-[12px]">{formattedAmount(precioOferta)}</p>
-							</div>
+				<div className="w-full flex flex-col justify-between order-1 sm:order-2 col-span-1">
+					<p className=" mt-5 px-2 text-xl md:text-[24px] 3xl:text-[36px] font-DynaPuff font-medium">
+						{nombreProducto}
+					</p>
+				</div>
+				<div className=" mt-5 px-2 text-sm md:text-xl flex flex-col justify-between w-full order-3">
+					<div className="flex justify-between w-full">
+						<p className=" md:text-md font-DynaPuff font-medium">
+							Precio normal
+						</p>
+						<p className=" md:text-md font-DynaPuff font-medium">Oferta</p>
+					</div>
+					<div className=" mt-2 flex flex-col justify-between">
+						<div className=" flex justify-between w-full ">
+							<p className=" font-DynaPuff font-extralight ">
+								{formattedAmount(precioVenta)}
+							</p>
+							<p className=" font-DynaPuff ">{formattedAmount(precioOferta)}</p>
 						</div>
 					</div>
-					<button className="bg-cyan-500 w-full h-10">
+				</div>
+				<div className="w-full h-10 mt-5 md:mb-0 order-4 md:col-span-1 md:col-start-2 self-end 0.5xl:pl-20 3xl:pl-64  rounded-md">
+					<button className=" w-full h-full bg-cyan-500 rounded-md font-DynaPuff md:text-md font-medium">
 						Consultar producto
 					</button>
 				</div>

@@ -6,6 +6,7 @@ import { HomePage } from "./Pages/HomePage";
 import { CategoryPage } from "./Pages/CategoryPage";
 import { ProductDetailPage } from "./Pages/ProductDetailPage";
 import { AdminPage } from "./Pages/AdminPage";
+import { SearchResults } from "./Pages/SearchResults";
 
 const App = () => {
 	return (
@@ -31,6 +32,9 @@ const App = () => {
 					</Route>
 					<Route path="/admin" element={<MainLayout />}>
 						<Route index element={<AdminPage />} />
+					</Route>
+					<Route path="/search" element={<MainLayout />}>
+						<Route index element={<SearchResults />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

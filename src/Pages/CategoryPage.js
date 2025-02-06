@@ -8,6 +8,7 @@ const CategoryPage = () => {
 	const { data, loading, error } = useFetch(
 		`http://localhost:5000/api/v1/categorias/${categoryName}/${categoryId}`
 	);
+
 	if (!!loading) return <Loading />;
 	if (!!error) return <h1>Error</h1>;
 
@@ -19,7 +20,7 @@ const CategoryPage = () => {
 			<section className="w-full px-5 lg:px-36 flex font-DynaPuff ">
 				<span className=" hidden md:w-1/4 "></span>
 				<div className=" w-full flex flex-col items-center">
-					<section className="w-full p-8 grid xl:grid-cols-5 xl:gap-6 border-slate-100 md:my-8 drop-shadow-md ">
+					<section className="w-full px-8 pb-8 grid xl:grid-cols-2 xl:gap-6 border-slate-100 md:my-8 drop-shadow-md ">
 						{data.map((product) => {
 							return (
 								<Link
