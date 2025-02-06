@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { SmartIcons } from "./SmartIcon";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscAccount } from "react-icons/vsc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MobileMenu } from "./MobileMenu";
 
 const Header = () => {
+	const [query, setQuery] = useState("");
+	const navigate = useNavigate();
 	const [visibility, setVisibility] = useState(false);
+	const handleSearch = (event) => {
+		event.preventDefault();
+		if (query.trim()) {
+			navigate(`/search/?search=${encodeURIComponent(query)}`);
+		}
+	};
+
+	console.log(query);
+
 	return (
 		<>
 			<header className="w-full bg-gradient-to-r from-cyan-500 to-blue-500">
@@ -41,19 +52,26 @@ const Header = () => {
 							</button>
 						</ul>
 					</section>
-					<div className=" w-full my-5 flex flex-row justify-center items-center h-8 bg-slate-200 rounded-lg xl:w-[500px] xl:absolute xl:top-5 xl:self-center">
+					<form
+						onSubmit={handleSearch}
+						className=" w-full my-5 flex flex-row justify-center items-center h-8 bg-slate-200 rounded-lg xl:w-[500px] xl:absolute xl:top-5 xl:self-center"
+					>
 						<div className="w-8 h-8 flex justify-center items-center focus:outline-dotted">
-							<FaSearch size={20} fill="#7dd3fc" />
+							<button type="submit">
+								<FaSearch size={20} fill="#7dd3fc" />
+							</button>
 						</div>
 						<input
 							type="text"
 							placeholder="Encuentra tu producto favorito!"
 							className=" bg-slate-200 w-full h-full px-1 font-DynaPuff text-sm rounded-lg focus:outline-none "
+							value={query}
+							onChange={(e) => setQuery(e.target.value)}
 						/>
-					</div>
+					</form>
 				</nav>
 			</header>
-			<MobileMenu visibility={visibility} />
+			<MobileMenu visibility={visibility} setVisibility={setVisibility} />
 		</>
 	);
 };
