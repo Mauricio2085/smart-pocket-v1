@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const ProductDetailPage = () => {
 	const { categoryName, productId } = useParams();
 	const { data, loading, error } = useFetch(
-		`http://localhost:5000/api/v1/productos/product-detail/${categoryName}/${productId}`
+		`http://localhost:5000/api/v1/productos/product-detail/${productId}`
 	);
 	let navigate = useNavigate();
 	if (!!loading) return <Loading />;
@@ -17,14 +17,10 @@ const ProductDetailPage = () => {
 		<>
 			<section className=" w-full h-10 px-5 md:px-20 lg:px-36 flex flex-col justify-center items-start font-DynaPuff text-sm m-auto bg-blue-700">
 				<button
-					onClick={() =>
-						navigate(
-							`../../categorias/${categoryName}/${data.product[0].categoria_id}`
-						)
-					}
+					onClick={() => navigate("../../")}
 					className="w-20 h-8 rounded-md bg-cyan-500 border border-yellow-100"
 				>
-					Atrás
+					Home
 				</button>
 			</section>
 			<section className=" w-full px-5 md:px-20 lg:px-36 flex ">

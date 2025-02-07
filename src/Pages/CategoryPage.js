@@ -24,7 +24,7 @@ const CategoryPage = () => {
 						{data.map((product) => {
 							return (
 								<Link
-									to={`../../productos/product-detail/${categoryName}/${product.id_producto}`}
+									to={`../../productos/product-detail/${product.id_producto}`}
 								>
 									<Card
 										key={product.id_producto}

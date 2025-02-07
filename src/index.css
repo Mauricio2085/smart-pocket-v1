@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.swiper-pagination {
+	@apply flex justify-center items-center;
+}
+.swiper-pagination-bullet {
+	@apply bg-cyan-500 w-4 h-4 mt-5;
+}
+.swiper-pagination-bullet-active {
+	@apply bg-yellow-400;
+}
+
 * {
 	margin: 0;
 	box-sizing: border-box;
