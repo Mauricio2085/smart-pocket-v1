@@ -19,7 +19,7 @@ const SearchResults = () => {
 
 	let heightProducts =
 		data && data.length <= 1
-			? "h-[calc(100vh-10.3rem)] md:h-[calc(100vh-32.3rem)] lg:md:h-[calc(100vh-27.8rem)]"
+			? "h-[calc(100vh-8rem)] sm:h-[calc(100vh-25.1rem)] md:h-[calc(100vh-39.8rem)] lg:md:h-[calc(100vh-30.8rem)]"
 			: "h-auto";
 
 	return (
@@ -33,7 +33,7 @@ const SearchResults = () => {
 				</button>
 			</section>
 			<section
-				className={`w-screen ${heightProducts} px-5 md:px-20 lg:px-36 flex justify-center items-center`}
+				className={`w-screen ${heightProducts} px-5 mb-8 md:px-20 lg:px-36 flex justify-center items-center`}
 			>
 				<section className="w-full bg-white md:my-8 ">
 					{data && data.length > 0 ? (
