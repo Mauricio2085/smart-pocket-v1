@@ -5,22 +5,29 @@ import { useFetch } from "../Hooks/useFetch";
 import { useNavigate } from "react-router-dom";
 
 const ProductDetailPage = () => {
-	const { categoryName, productId } = useParams();
+	const { productId } = useParams();
+	const API_URL =
+		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
+	console.log("API URL:", process.env.REACT_APP_API_URL);
 	const { data, loading, error } = useFetch(
-		`http://localhost:5000/api/v1/productos/product-detail/${productId}`
+		`${API_URL}/api/v1/productos/product-detail/${productId}`
 	);
 	let navigate = useNavigate();
 	if (!!loading) return <Loading />;
 	if (!!error) return <h1>Error</h1>;
-
+	console.log(data);
 	return (
 		<>
-			<section className=" w-full h-10 px-5 md:px-20 lg:px-36 flex flex-col justify-center items-start font-DynaPuff text-sm m-auto bg-blue-700">
+			<section className=" w-full h-10 px-5 md:px-20 lg:px-36 flex flex-col justify-center items-start font-DynaPuff text-sm m-auto bg-gradient-to-r from-cyan-500 to-blue-500">
 				<button
-					onClick={() => navigate("../../")}
-					className="w-20 h-8 rounded-md bg-cyan-500 border border-yellow-100"
+					onClick={() =>
+						navigate(
+							`../../categorias/${data.product[0].nombre_categoria}/${data.product[0].categoria_id}`
+						)
+					}
+					className="w-20 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500 "
 				>
-					Home
+					Atrás
 				</button>
 			</section>
 			<section className=" w-full px-5 md:px-20 lg:px-36 flex ">

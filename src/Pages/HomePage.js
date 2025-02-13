@@ -5,7 +5,10 @@ import { useFetch } from "../Hooks/useFetch";
 import { ProductCarousel } from "../components/ProductCarousel";
 
 const HomePage = () => {
-	const { data, error } = useFetch(`http://localhost:5000/api/v1/productos`);
+	const API_URL =
+		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
+	console.log("API URL:", process.env.REACT_APP_API_URL);
+	const { data, error } = useFetch(`${API_URL}/api/v1/productos`);
 
 	if (!!error) return <h1>Error</h1>;
 

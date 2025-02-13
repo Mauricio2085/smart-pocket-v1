@@ -1,4 +1,5 @@
 import React from "react";
+import { useFormattedAmount } from "../Hooks/useFormattedAmount";
 
 const Card = ({
 	nombreProducto,
@@ -6,16 +7,9 @@ const Card = ({
 	precioVenta,
 	precioOferta,
 	cardOnCarousel,
+	descripcionProducto,
 }) => {
-	const formattedAmount = (amount) => {
-		return new Intl.NumberFormat("es-CO", {
-			style: "currency",
-			currency: "COP",
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0,
-		}).format(amount);
-	};
-
+	const formattedAmount = useFormattedAmount;
 	let paddingCarousel = !!cardOnCarousel ? "2xl:pr-8 md:mt-0" : "";
 
 	return (
@@ -36,7 +30,7 @@ const Card = ({
 					</p>
 				</div>
 				<div
-					className={`mt-5 px-2 text-sm md:text-xl flex flex-col justify-between w-full order-3`}
+					className={`mt-5 px-2 text-sm md:text-[16px] 2xl:text-lg flex flex-col justify-between w-full order-3`}
 				>
 					<div className="flex justify-between w-full">
 						<p className=" md:text-md font-DynaPuff font-medium">
@@ -57,7 +51,7 @@ const Card = ({
 					className={`w-full h-10 mt-5 md:mb-0 order-4 md:col-span-1 md:col-start-2 self-end 0.5xl:pl-20 3xl:pl-30  rounded-md`}
 				>
 					<button className=" w-full h-full bg-cyan-500 rounded-md font-DynaPuff md:text-md font-medium">
-						Consultar producto
+						Detalles de producto
 					</button>
 				</div>
 			</div>
