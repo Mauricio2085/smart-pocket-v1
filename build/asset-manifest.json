@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/static/css/main.ab30313f.css",
-    "main.js": "/static/js/main.f2773ce4.js",
+    "main.js": "/static/js/main.259cd5c8.js",
     "static/js/787.c54ad968.chunk.js": "/static/js/787.c54ad968.chunk.js",
     "static/media/smart_quality.jpg": "/static/media/smart_quality.8bc637aa5d2febc74277.jpg",
     "static/media/smart_buy.jpg": "/static/media/smart_buy.e4875e01a02892f46f89.jpg",
     "static/media/smart_save.jpg": "/static/media/smart_save.3d8f8cf13c3a5d7aebf3.jpg",
     "static/media/Smart_Pocket_V2_Uso_general_800x800px.png": "/static/media/Smart_Pocket_V2_Uso_general_800x800px.82dd30e55b95a7d43a2e.png",
-    "static/media/Smart_Pocket_V2_Logo_Web_200x40px.svg": "/static/media/Smart_Pocket_V2_Logo_Web_200x40px.b8c0a48d8c5f8166b829cb01f5ea6063.svg",
+    "static/media/Smart_Pocket_V2_Logo_Web_200x40px.svg": "/static/media/Smart_Pocket_V2_Logo_Web_200x40px.a301fe075e0c2defd3c660f1d074a2c2.svg",
     "static/media/whatsapp.png": "/static/media/whatsapp.84610043d7e1503338ac.png",
     "index.html": "/index.html",
     "main.ab30313f.css.map": "/static/css/main.ab30313f.css.map",
-    "main.f2773ce4.js.map": "/static/js/main.f2773ce4.js.map",
+    "main.259cd5c8.js.map": "/static/js/main.259cd5c8.js.map",
     "787.c54ad968.chunk.js.map": "/static/js/787.c54ad968.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab30313f.css",
-    "static/js/main.f2773ce4.js"
+    "static/js/main.259cd5c8.js"
   ]
 }
