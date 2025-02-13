@@ -1,4 +1,6 @@
+import { useQueryForWp } from "../Hooks/useQueryForWp";
 import React from "react";
+import { useFormattedAmount } from "../Hooks/useFormattedAmount";
 
 const ProductCard = ({
 	idProducto,
@@ -8,18 +10,16 @@ const ProductCard = ({
 	precioOferta,
 	descripcionProducto,
 }) => {
-	const formattedAmount = (amount) => {
-		return new Intl.NumberFormat("es-CO", {
-			style: "currency",
-			currency: "COP",
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0,
-		}).format(amount);
-	};
+	const formattedAmount = useFormattedAmount;
+
+	const queryWp = useQueryForWp();
 
 	return (
 		<>
-			<div key={idProducto} className=" my-8 flex-col bg-white xl:px-60 ">
+			<div
+				key={idProducto}
+				className=" my-8 flex-col bg-white xl:px-40 2xl:px-80 "
+			>
 				<div className="w-full rounded-md flex flex-col sm:grid sm:grid-cols-2 sm:gap-4 border border-slate-100 drop-shadow-md">
 					<div className="w-full flex justify-center sm:order-1 sm:row-span-3 ">
 						<img
@@ -52,8 +52,18 @@ const ProductCard = ({
 						</div>
 					</div>
 					<div className="w-full h-10 my-5 order-4 md:col-span-1 md:col-start-2 0.5xl:pl-20 3xl:pl-64  rounded-md">
-						<button className=" w-full h-full bg-cyan-500 rounded-md font-DynaPuff md:text-md font-medium">
-							Consultar producto
+						<button
+							className=" w-full h-full bg-cyan-500 rounded-md font-DynaPuff md:text-md font-medium"
+							onClick={() =>
+								queryWp(
+									nombreProducto,
+									descripcionProducto,
+									precioOferta,
+									imagenProducto
+								)
+							}
+						>
+							Consultar producto vía Whatsapp
 						</button>
 					</div>
 				</div>

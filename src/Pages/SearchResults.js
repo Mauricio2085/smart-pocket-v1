@@ -6,11 +6,12 @@ import { ProductNotFound } from "../components/ProductNotFound";
 
 const SearchResults = () => {
 	const [searchParams] = useSearchParams();
-	const productName = searchParams.get("search");
+	const productName = searchParams.get("productName");
+	const API_URL =
+		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
+	console.log("API URL:", process.env.REACT_APP_API_URL);
 	const { data, loading, error } = useFetch(
-		`http://localhost:5000/api/v1/search?search=${encodeURIComponent(
-			productName
-		)}`
+		`${API_URL}/api/v1/search?productName=${encodeURIComponent(productName)}`
 	);
 
 	let navigate = useNavigate();
@@ -24,12 +25,12 @@ const SearchResults = () => {
 
 	return (
 		<>
-			<section className=" w-full h-10 px-5 md:px-20 lg:px-36 flex flex-col justify-center items-start font-DynaPuff text-sm m-auto bg-blue-700">
+			<section className=" w-full h-10 px-5 md:px-20 lg:px-36 flex flex-col justify-center items-start font-DynaPuff text-sm m-auto bg-blue-700 2xl:px-80">
 				<button
 					onClick={() => navigate("/")}
 					className="w-20 h-8 rounded-md bg-cyan-500 border border-yellow-100"
 				>
-					Atrás
+					Home
 				</button>
 			</section>
 			<section

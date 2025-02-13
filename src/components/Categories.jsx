@@ -4,9 +4,10 @@ import { useFetch } from "../Hooks/useFetch";
 import { Loading } from "./Loading";
 
 const Categories = () => {
-	const { data, loading, error } = useFetch(
-		"http://localhost:5000/api/v1/categorias"
-	);
+	const API_URL =
+		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
+	console.log("API URL:", process.env.REACT_APP_API_URL);
+	const { data, loading, error } = useFetch(`${API_URL}/api/v1/categorias`);
 
 	if (!!loading) return <Loading />;
 	if (!!error) return <h1>Error</h1>;

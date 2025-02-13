@@ -14,7 +14,7 @@ const Header = () => {
 	const handleSearch = (event) => {
 		event.preventDefault();
 		if (query.trim()) {
-			navigate(`/search/?search=${encodeURIComponent(query)}`);
+			navigate(`/search/?productName=${encodeURIComponent(query)}`);
 		}
 	};
 
