@@ -1,7 +1,7 @@
 import React from "react";
-import smartSave from "../assets/smart_save.webp";
-import smartBuy from "../assets/smart_buy.webp";
-import smartQuality from "../assets/smart_quality.webp";
+import smartSave from "../assets/smart_save.jpg";
+import smartBuy from "../assets/smart_buy.jpg";
+import smartQuality from "../assets/smart_quality.jpg";
 const Public = () => {
 	return (
 		<section className=" my-8 lg:my-40 flex flex-col items-center justify-center font-DynaPuff ">
