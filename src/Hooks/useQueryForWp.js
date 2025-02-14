@@ -14,7 +14,7 @@ const useQueryForWp = () => {
 			console.log("Descripción:", descripcionProducto);
 			console.log("Imagen:", imagenProducto);
 			const precio = formatAmount(precioOferta);
-			const phoneNumber = data.phone; // Número de destino en formato internacional (57 = Colombia)
+			const phoneNumber = data.phone;
 			const message = `Hola!%0AQuisiera consultar por el siguiente producto:%0AImagén del producto: ${imagenProducto}%0AProducto: ${nombreProducto}%0ADescripción: ${descripcionProducto}%0A Precio: ${precio}`;
 
 			const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
@@ -23,7 +23,7 @@ const useQueryForWp = () => {
 
 			window.open(whatsappUrl, "_blank");
 		},
-		[formatAmount]
+		[formatAmount, data]
 	);
 };
 
