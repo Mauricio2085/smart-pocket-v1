@@ -1,9 +1,9 @@
-import { ReactComponent as FooterLogo } from "../assets/Smart_Pocket_V2_Logo_Web_200x40px.svg";
+import footerLogo from "../assets/Smart_Pocket_V2_Logo_Web_200x40px.png";
 
 const FooterImage = () => {
 	return (
 		<>
-			<FooterLogo />
+			<img src={footerLogo} />
 		</>
 	);
 };
