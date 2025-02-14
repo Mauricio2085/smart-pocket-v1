@@ -2,9 +2,9 @@ import { ReactComponent as FooterLogo } from "../assets/Smart_Pocket_V2_Logo_Web
 
 const FooterImage = () => {
 	return (
-		<div className="max-w-[150px] md:w-72 flex justify-center items-center lg:items-start">
+		<>
 			<FooterLogo />
-		</div>
+		</>
 	);
 };
 
