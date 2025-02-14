@@ -12,7 +12,7 @@ const Footer = () => {
 	return (
 		<footer className="w-full flex flex-col justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
 			<div className="w-full h-40 px-5 flex justify-between lg:flex md:px-20 md:py-16 lg:px-36 lg:py-16 md:h-80">
-				<div className="w-40 md:w-72 flex justify-center items-center lg:items-start">
+				<div className="w-40 p-8 md:w-72 flex justify-center items-center lg:items-start">
 					<SmartIcons iconType={"footer"} />
 				</div>
 				<div className="hidden md:flex flex-col items-start md:40 xl:mr-60">
