@@ -51,7 +51,7 @@ const ProductCard = ({
 							</div>
 						</div>
 					</div>
-					<div className="w-full h-10 my-5 order-4 md:col-span-1 md:col-start-2 0.5xl:pl-28 3xl:pl-64 rounded-md">
+					<div className="w-full h-10 my-5 order-4 md:col-span-1 md:col-start-2 0.5xl:pl-28 3xl:pl-20 rounded-md">
 						<button
 							className=" w-full h-full bg-cyan-500 rounded-md font-DynaPuff md:text-md font-medium"
 							onClick={() =>
