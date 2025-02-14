@@ -50,7 +50,6 @@ const ProductCarousel = ({ data }) => {
 						</SwiperSlide>
 					);
 				})}
-				;
 			</Swiper>
 		</section>
 	);
