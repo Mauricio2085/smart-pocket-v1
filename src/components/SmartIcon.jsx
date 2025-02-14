@@ -6,7 +6,7 @@ const SmartIcons = ({ iconType }) => {
 	return (
 		<>
 			{iconType === "loading" ? <LoadingImage /> : null}
-			{iconType === "footer" ? <SmartLogo /> : null}
+			{iconType === "footer" ? <FooterImage /> : null}
 			{iconType === "logo" ? <SmartLogo /> : null}
 		</>
 	);
