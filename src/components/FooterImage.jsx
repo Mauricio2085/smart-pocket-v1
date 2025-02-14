@@ -1,10 +1,10 @@
-import footerLogo from "../assets/Smart_Pocket_V2_Logo_Web_200x40px.png";
+import { ReactComponent as FooterLogo } from "../assets/Smart_Pocket_V2_Logo_Web_200x40px.svg";
 
 const FooterImage = () => {
 	return (
-		<>
-			<img src={footerLogo} />
-		</>
+		<div className="w-40 md:w-72 justify-center items-center lg:items-start">
+			<FooterLogo />
+		</div>
 	);
 };
 
