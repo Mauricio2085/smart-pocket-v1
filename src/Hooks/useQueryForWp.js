@@ -6,9 +6,8 @@ const useQueryForWp = () => {
 	const formatAmount = useFormattedAmount;
 	const API_URL =
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
-	console.log("API URL:", process.env.REACT_APP_API_URL);
 	const { data } = useFetch(`${API_URL}/api/v1/whatsapp-number`);
-
+	console.log("Number_API:", data);
 	return useCallback(
 		(nombreProducto, descripcionProducto, precioOferta, imagenProducto) => {
 			console.log("Producto:", nombreProducto);
