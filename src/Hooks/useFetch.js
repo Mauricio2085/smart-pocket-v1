@@ -8,16 +8,14 @@ function useFetch(url) {
 	useEffect(() => {
 		try {
 			setLoading(true);
-			setTimeout(() => {
-				const fetchData = async () => {
-					const response = await fetch(url);
-					const result = await response.json();
-					const data = setData(result);
-					setLoading(false);
-					return { data };
-				};
-				fetchData();
-			}, 1000);
+			const fetchData = async () => {
+				const response = await fetch(url);
+				const result = await response.json();
+				const data = setData(result);
+				setLoading(false);
+				return { data };
+			};
+			fetchData();
 		} catch (error) {
 			setError(error);
 		}
