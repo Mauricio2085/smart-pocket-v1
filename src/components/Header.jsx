@@ -30,9 +30,16 @@ const Header = () => {
 								<GiHamburgerMenu size={36} fill="#7dd3fc" />
 							</button>
 						</div>
-						<Link to="/">
+						<button
+							onClick={() => {
+								if (visibility) {
+									setVisibility(false);
+								}
+								navigate("/");
+							}}
+						>
 							<SmartIcons iconType="logo" />
-						</Link>
+						</button>
 						<ul className="flex justify-center items-center">
 							<li className="">
 								<Link to="/login">
