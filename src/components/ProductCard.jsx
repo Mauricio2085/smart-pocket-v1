@@ -9,6 +9,7 @@ const ProductCard = ({
 	precioVenta,
 	precioOferta,
 	descripcionProducto,
+	especificacionesProducto,
 }) => {
 	const formattedAmount = useFormattedAmount;
 
@@ -81,7 +82,7 @@ const ProductCard = ({
 							Especificaciones del producto
 						</h1>
 						<p className=" my-5 font-DynaPuff text-xs md:text-[16px]">
-							{descripcionProducto}
+							{especificacionesProducto}
 						</p>
 					</div>
 				</div>
