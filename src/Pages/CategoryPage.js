@@ -43,8 +43,9 @@ const CategoryPage = () => {
 										imagenProducto={product.imagen_producto}
 										nombreProducto={product.nombre_producto}
 										precioOferta={product.precio_venta}
-										precioVenta={product.precio_venta}
+										precioVenta={product.precio_comercial}
 										descripcionProducto={product.descripcion}
+										especificacionesProducto={product.especificaciones}
 									/>
 								</Link>
 							);

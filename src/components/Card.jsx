@@ -8,6 +8,7 @@ const Card = ({
 	precioOferta,
 	cardOnCarousel,
 	descripcionProducto,
+	especificacionesProducto
 }) => {
 	const formattedAmount = useFormattedAmount;
 	let paddingCarousel = !!cardOnCarousel ? "2xl:pr-8 md:mt-0" : "";
