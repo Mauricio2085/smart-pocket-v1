@@ -73,7 +73,7 @@ const ProductCard = ({
 						<h1 className="mt-5 font-DynaPuff font-medium md:text-[22px] ">
 							Descripción del producto
 						</h1>
-						<p className=" my-5 font-DynaPuff text-xs md:text-[16px]">
+						<p className=" my-5 font-DynaPuff text-xs md:text-[16px] whitespace-pre-line leading-relaxed">
 							{descripcionProducto}
 						</p>
 					</div>
@@ -81,7 +81,7 @@ const ProductCard = ({
 						<h1 className="mt-5 font-DynaPuff font-medium md:text-[22px]">
 							Especificaciones del producto
 						</h1>
-						<p className=" my-5 font-DynaPuff text-xs md:text-[16px]">
+						<p className=" my-5 font-DynaPuff text-xs md:text-[16px] whitespace-pre-line leading-relaxed">
 							{especificacionesProducto}
 						</p>
 					</div>

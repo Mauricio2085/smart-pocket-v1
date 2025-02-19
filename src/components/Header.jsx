@@ -17,9 +17,6 @@ const Header = () => {
 			navigate(`/search/?productName=${encodeURIComponent(query)}`);
 		}
 	};
-
-	console.log(query);
-
 	return (
 		<>
 			<header className="w-full bg-gradient-to-r from-cyan-500 to-blue-500">
@@ -47,7 +44,10 @@ const Header = () => {
 										Iniciar sesión
 									</button>
 								</Link>
-								<button className=" xl:hidden w-10 h-full pr-2 flex justify-center flex-wrap ">
+								<button
+									className=" xl:hidden w-10 h-full pr-2 flex justify-center flex-wrap "
+									onClick={() => navigate("/login")}
+								>
 									<VscAccount size={36} fill="#7dd3fc" />
 								</button>
 							</li>

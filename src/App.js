@@ -28,9 +28,24 @@ const App = () => {
 						<Route path=":productId" element={<ProductDetailPage />} />
 					</Route>
 					<Route path="/admin" element={<MainLayout />}>
-						<Route index element={<AdminPage />} />
+						<Route path="" element={<AdminPage />}>
+							<Route path="dashboard" element={<h1>Home admin</h1>} />
+							<Route
+								path="productos-categorias"
+								element={<h1>lista productos y categorias</h1>}
+							/>
+							<Route path="crear-producto" element={<h1>Crear productos</h1>} />
+							<Route
+								path="modificar-producto"
+								element={<h1>Modificar productos</h1>}
+							/>
+							<Route
+								path="eliminar-producto"
+								element={<h1>Eliminar productos</h1>}
+							/>
+						</Route>
 					</Route>
-					<Route path="/search" element={<MainLayout />}>
+					<Route path="search" element={<MainLayout />}>
 						<Route index element={<SearchResults />} />
 					</Route>
 				</Routes>

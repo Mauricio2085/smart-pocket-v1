@@ -14,7 +14,6 @@ const ProductDetailPage = () => {
 	let navigate = useNavigate();
 	if (!!loading) return <Loading />;
 	if (!!error) return <h1>Error</h1>;
-	console.log("Productos: ", data);
 	return (
 		<>
 			<section className=" w-full h-10 px-5 md:px-20 lg:px-36 flex flex-col justify-center items-start font-DynaPuff text-sm m-auto bg-gradient-to-r from-cyan-500 to-blue-500">
