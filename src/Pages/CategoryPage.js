@@ -6,7 +6,6 @@ import { useFetch } from "../Hooks/useFetch";
 const CategoryPage = () => {
 	const API_URL =
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
-	console.log("API URL:", process.env.REACT_APP_API_URL);
 	const { categoryName, categoryId } = useParams();
 	const { data, loading, error } = useFetch(
 		`${API_URL}/api/v1/categorias/${categoryName}/${categoryId}`
@@ -36,10 +35,10 @@ const CategoryPage = () => {
 						{data.map((product) => {
 							return (
 								<Link
+									key={product.id_producto}
 									to={`../../productos/product-detail/${product.id_producto}`}
 								>
 									<Card
-										key={product.id_producto}
 										imagenProducto={product.imagen_producto}
 										nombreProducto={product.nombre_producto}
 										precioOferta={product.precio_venta}

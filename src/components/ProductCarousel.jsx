@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 const ProductCarousel = ({ data }) => {
 	let cardOnCarousel = true;
-	console.log("Esta es la data que llega a carousel: ", data);
 	return (
 		<section className="w-full px-5 xl:px-36 flex flex-col items-center justify-center lg:my-16 font-DynaPuff font-semibold ">
 			<h1 className=" my-8 md:my-20 px-5 xl:px-36 text-center font-DynaPuff text-[1.7rem] md:text-[2.2rem] 2xl:text-[3.5rem] ">

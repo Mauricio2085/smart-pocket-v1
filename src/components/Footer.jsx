@@ -8,7 +8,6 @@ const Footer = () => {
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
 	const { data } = useFetch(`${API_URL}/api/v1/whatsapp-number`);
 	const whpUrl = `https://wa.me/${data.phone}?text=Hola como estás?`;
-	console.log(data);
 	return (
 		<footer className="w-full flex flex-col justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
 			<div className="w-full h-40 px-5 flex justify-between lg:flex md:px-20 md:py-16 lg:px-36 lg:py-16 md:h-80">
