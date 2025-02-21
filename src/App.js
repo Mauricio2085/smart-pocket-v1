@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainLayout } from "./Layouts/MainLayout";
-import { Login } from "./Pages/LoginPage";
+import { LoginPage } from "./Pages/LoginPage";
 import { HomePage } from "./Pages/HomePage";
 import { CategoryPage } from "./Pages/CategoryPage";
 import { ProductDetailPage } from "./Pages/ProductDetailPage";
@@ -13,9 +13,9 @@ const App = () => {
 		<>
 			<BrowserRouter>
 				<Routes>
+					<Route path="/login" element={<LoginPage />} />
 					<Route path="/" element={<MainLayout />}>
 						<Route index element={<HomePage />} />
-						<Route path="login" element={<Login />} />
 					</Route>
 					<Route path="/categorias" element={<MainLayout />}>
 						<Route index element={<h1>Index de categories</h1>} />

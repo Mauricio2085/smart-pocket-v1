@@ -1,11 +1,14 @@
 import React from "react";
+import { SmartForm } from "../components/SmartForm";
 
-const Login = () => {
+const LoginPage = () => {
 	return (
 		<>
-			<h1>Hola soy el login</h1>
+			<section className="w-full h-screen flex justify-center items-center">
+				<SmartForm />
+			</section>
 		</>
 	);
 };
 
-export { Login };
+export { LoginPage };
