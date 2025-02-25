@@ -1,6 +1,6 @@
 import { render, screen, renderHook } from "@testing-library/react";
 // import { Swiper, SwiperSlide } from "swiper/react";
-import { useFetch } from "../Hooks/useFetch";
+import { useFetch } from "../hooks/useFetch";
 // import App from "../App.js";
 
 // test("renders learn react link", () => {

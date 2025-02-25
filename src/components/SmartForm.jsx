@@ -1,17 +1,18 @@
 import { useForm } from "react-hook-form";
 import { SmartIcons } from "./SmartIcon";
-import axios from "axios";
+import { useAuth } from "../context/AuthContex";
+import { useNavigate } from "react-router-dom";
 
 const SmartForm = () => {
 	const { register, handleSubmit } = useForm();
+	const { login } = useAuth();
+	const navigate = useNavigate();
 
 	const onSubmit = async (data) => {
 		try {
-			const response = await axios.post(
-				"http://localhost:5000/api/v1/login",
-				data
-			);
-			console.log(response);
+			console.log(data);
+			await login(data);
+			navigate("/admin");
 		} catch (error) {
 			console.log(error);
 		}
@@ -20,7 +21,9 @@ const SmartForm = () => {
 		<div className="w-80 rounded-lg px-4  text-center bg-cyan-50 ">
 			<div className="flex flex-col w-full">
 				<div className=" my-3 flex justify-center items-center">
-					<SmartIcons iconType="logo" />
+					<button onClick={() => navigate("/")}>
+						<SmartIcons iconType="logo" />
+					</button>
 				</div>
 				<form
 					onSubmit={handleSubmit(onSubmit)}

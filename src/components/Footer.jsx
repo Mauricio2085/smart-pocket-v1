@@ -1,7 +1,7 @@
 import { SmartIcons } from "./SmartIcon";
 import footerWhatsapp from "../assets/whatsapp.png";
 import { Link } from "react-router-dom";
-import { useFetch } from "../Hooks/useFetch";
+import { useFetch } from "../hooks/useFetch";
 
 const Footer = () => {
 	const API_URL =
