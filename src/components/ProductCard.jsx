@@ -1,6 +1,6 @@
-import { useQueryForWp } from "../Hooks/useQueryForWp";
+import { useQueryForWp } from "../hooks/useQueryForWp";
 import React from "react";
-import { useFormattedAmount } from "../Hooks/useFormattedAmount";
+import { useFormattedAmount } from "../hooks/useFormattedAmount";
 
 const ProductCard = ({
 	idProducto,

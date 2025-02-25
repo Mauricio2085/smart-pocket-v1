@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormattedAmount } from "../Hooks/useFormattedAmount";
+import { useFormattedAmount } from "../hooks/useFormattedAmount";
 
 const Card = ({
 	nombreProducto,
