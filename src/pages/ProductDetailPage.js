@@ -9,7 +9,7 @@ const ProductDetailPage = () => {
 	const API_URL =
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
 	const { data, loading, error } = useFetch(
-		`${API_URL}/api/v1/productos/product-detail/${productId}`
+		`${API_URL}/productos/product-detail/${productId}`
 	);
 	let navigate = useNavigate();
 	if (!!loading) return <Loading />;

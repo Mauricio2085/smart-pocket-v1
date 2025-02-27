@@ -6,7 +6,7 @@ import { useFetch } from "../hooks/useFetch";
 const Footer = () => {
 	const API_URL =
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
-	const { data } = useFetch(`${API_URL}/api/v1/whatsapp-number`);
+	const { data } = useFetch(`${API_URL}/whatsapp-number`);
 	const whpUrl = `https://wa.me/${data.phone}?text=Hola como estás?`;
 	return (
 		<footer className="w-full flex flex-col justify-center bg-gradient-to-r from-cyan-500 to-blue-500">

@@ -9,9 +9,7 @@ const Dashboard = () => {
 	const API_URL =
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
 
-	const { data, loading, error } = useFetch(
-		`${API_URL}/api/v1/dashboard/sumary`
-	);
+	const { data, loading, error } = useFetch(`${API_URL}/dashboard/sumary`);
 
 	if (!!loading) return <Loading />;
 	if (!!error) return <h1>Error</h1>;

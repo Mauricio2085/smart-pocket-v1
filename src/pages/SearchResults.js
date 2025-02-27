@@ -11,7 +11,7 @@ const SearchResults = () => {
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
 	console.log("API URL:", process.env.REACT_APP_API_URL);
 	const { data, loading, error } = useFetch(
-		`${API_URL}/api/v1/search?productName=${encodeURIComponent(productName)}`
+		`${API_URL}/search?productName=${encodeURIComponent(productName)}`
 	);
 
 	let navigate = useNavigate();

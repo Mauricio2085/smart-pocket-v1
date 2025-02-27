@@ -21,7 +21,7 @@ const AuthProvider = ({ children }) => {
 		if (storedToken) {
 			setToken(storedToken); // Actualiza el estado del token // Restablece el token en el estado
 			axios
-				.get(`${API_URL}/api/v1/profile`, {
+				.get(`${API_URL}/profile`, {
 					headers: { Authorization: `Bearer ${storedToken}` },
 				})
 				.then((response) => {
@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
 	// Función para iniciar sesión
 	const login = async (data) => {
 		try {
-			const response = await axios.post(`${API_URL}/api/v1/login`, data);
+			const response = await axios.post(`${API_URL}/login`, data);
 			const { token, user } = response.data;
 
 			// Guardar el token en localStorage y actualizar el estado
