@@ -8,6 +8,7 @@ import { ProductDetailPage } from "./pages/ProductDetailPage";
 import { AdminPage } from "./pages/AdminPage";
 import { SearchResults } from "./pages/SearchResults";
 import { Dashboard } from "./pages/Dashboard";
+import { CreateProducts } from "./pages/CreateProducts";
 
 const App = () => {
 	return (
@@ -30,7 +31,7 @@ const App = () => {
 					</Route>
 					<Route path="/admin" element={<AdminPage />}>
 						<Route index element={<Dashboard />} />
-						<Route path="crear-producto" element={<h1>Crear productos</h1>} />
+						<Route path="crear-producto" element={<CreateProducts />} />
 						<Route
 							path="modificar-producto"
 							element={<h1>Modificar productos</h1>}
