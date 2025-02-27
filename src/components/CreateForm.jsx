@@ -4,6 +4,8 @@ import { uploadToCloudinary } from "../utils/handleUpload";
 
 const CreateForm = () => {
 	const { register, handleSubmit } = useForm();
+	const API_URL =
+		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
 
 	const useCleaner = () => {
 		const cleanerText = (text) => text.trim().toLowerCase();
