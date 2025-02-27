@@ -7,7 +7,7 @@ const Dashboard = () => {
 	const { logout } = useAuth();
 
 	const { data, loading, error } = useFetch(
-		"http://localhost:5000/api/v1/dashboard/sumary"
+		`${API_URL}/api/v1/dashboard/sumary`
 	);
 
 	if (!!loading) return <Loading />;
