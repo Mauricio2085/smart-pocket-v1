@@ -2,6 +2,7 @@ import { useFetch } from "../hooks/useFetch";
 import { useAuth } from "../context/AuthContex";
 import { useNavigate } from "react-router-dom";
 import { Loading } from "../components/Loading";
+
 const Dashboard = () => {
 	const navigate = useNavigate();
 	const { logout } = useAuth();
