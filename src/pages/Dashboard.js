@@ -5,6 +5,8 @@ import { Loading } from "../components/Loading";
 const Dashboard = () => {
 	const navigate = useNavigate();
 	const { logout } = useAuth();
+	const API_URL =
+		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
 
 	const { data, loading, error } = useFetch(
 		`${API_URL}/api/v1/dashboard/sumary`
