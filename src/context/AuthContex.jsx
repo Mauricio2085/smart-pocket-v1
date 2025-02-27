@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
+
 const AuthContext = createContext();
 
 const useAuth = () => useContext(AuthContext);
@@ -19,7 +21,7 @@ const AuthProvider = ({ children }) => {
 		if (storedToken) {
 			setToken(storedToken); // Actualiza el estado del token // Restablece el token en el estado
 			axios
-				.get("http://localhost:5000/api/v1/profile", {
+				.get(`${API_URL}/api/v1/profile`, {
 					headers: { Authorization: `Bearer ${storedToken}` },
 				})
 				.then((response) => {
@@ -36,10 +38,7 @@ const AuthProvider = ({ children }) => {
 	// Función para iniciar sesión
 	const login = async (data) => {
 		try {
-			const response = await axios.post(
-				"http://localhost:5000/api/v1/login",
-				data
-			);
+			const response = await axios.post(`${API_URL}/api/v1/login`, data);
 			const { token, user } = response.data;
 
 			// Guardar el token en localStorage y actualizar el estado

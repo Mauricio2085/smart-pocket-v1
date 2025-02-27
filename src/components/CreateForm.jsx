@@ -42,7 +42,7 @@ const CreateForm = () => {
 			precio_comercial: data.precio_comercial,
 		};
 		const response = await axios.post(
-			"http://localhost:5000/api/v1/crear-producto",
+			`${API_URL}/api/v1/crear-producto`,
 			cleanData
 		);
 		const rta = response.data;
