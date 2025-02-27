@@ -8,7 +8,7 @@ const CategoryPage = () => {
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
 	const { categoryName, categoryId } = useParams();
 	const { data, loading, error } = useFetch(
-		`${API_URL}/api/v1/categorias/${categoryName}/${categoryId}`
+		`${API_URL}/categorias/${categoryName}/${categoryId}`
 	);
 	const navigate = useNavigate();
 
