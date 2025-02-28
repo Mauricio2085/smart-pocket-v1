@@ -1,25 +1,35 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { uploadToCloudinary } from "../utils/handleUpload";
+import { useState } from "react";
 
 const CreateForm = () => {
 	const { register, handleSubmit } = useForm();
+	const [customFileName, setcustomFileName] = useState(
+		"Ningún archivo seleccionado"
+	);
+	const [filePhoto, setfilePhoto] = useState(null);
 	const API_URL =
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
-
 	const useCleaner = () => {
 		const cleanerText = (text) => text.trim().toLowerCase();
 		const toBoolean = (input) => cleanerText(input) === "si";
 
 		return { cleanerText, toBoolean };
 	};
-
 	const { cleanerText, toBoolean } = useCleaner();
 
+	const upLoadFile = (event) => {
+		const file = event.target.files[0];
+		setcustomFileName(
+			file ? file.name : "No se ha seleccionado ningún archivo"
+		);
+		setfilePhoto(file);
+		console.log("File uploaded: ", file);
+	};
 	const onSubmit = async (data) => {
-		const image = data.imagen_producto[0];
+		const image = filePhoto;
 		const imageUrl = await uploadToCloudinary(image);
-		console.log("Imagen url: ", imageUrl);
 		// const valueToClean = [
 		// 	"nombre_producto",
 		// 	"imagen_producto",
@@ -51,109 +61,142 @@ const CreateForm = () => {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className="bg-yellow-50 w-full flex flex-col shadow-md"
+			className="bg-cyan-50 w-full flex flex-col shadow-md font-DynaPuff"
 		>
-			<label className=" text-sm font-bold mb-1 ">Nombre</label>
+			<label className="pl-5 text-sm font-medium my-2 ">
+				Nombre del producto
+			</label>
 			<input
 				{...register("nombre_producto")}
 				type="text"
 				placeholder="Nombre del producto"
-				className=" mb-6 h-9 rounded-md bg-cyan-50 text-xs pl-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				className=" mb-6 h-9 rounded-md bg-white text-xs mx-3 pl-2 focus:ring-2 focus:ring-cyan-500 outline-none "
+				required
+				title="Debe asignar un nombre para el producto"
 			/>
-			<label className=" text-sm font-bold mb-1 ">Imagen del producto</label>
-			<input
-				{...register("imagen_producto")}
-				type="file"
-				placeholder="Imagen del producto"
-				className=" mb-6 h-9 rounded-md bg-cyan-50 text-xs pl-3 focus:ring-2 focus:ring-cyan-500 outline-none "
-			/>
-			<label className=" text-sm font-bold mb-1">Descripción</label>
+			<label className="pl-5 text-sm font-medium mb-2 cursor-pointer">
+				Imagen del producto
+			</label>
+			<div className="flex justify-start items-center mb-6 pl-2 h-9 bg-white text-[10px] font-normal mx-3 focus:ring-2 focus:ring-cyan-500 outline-none">
+				<label
+					htmlFor="namePhoto"
+					className="w-1/3 shrink-0 text-[10px] p-2 font-medium rounded-md cursor-pointer bg-gradient-to-l from-cyan-500 to-blue-500 hover:text-white"
+				>
+					Cargar archivo
+				</label>
+				<span id="fileName" className="text-gray-400 text-[10px] pl-4">
+					{customFileName}
+				</span>
+				<input
+					{...register("imagen_producto")}
+					type="file"
+					accept=".jpg, .jpeg, .png"
+					className="hidden"
+					id="namePhoto"
+					onChange={upLoadFile}
+					required
+				/>
+			</div>
+			<label className="pl-5 text-sm font-medium mb-2">Descripción</label>
 			<textarea
 				{...register("descripcion")}
 				rows="10"
 				cols="50"
 				type="text"
 				placeholder="Descripción del producto"
-				className="bg-cyan-50 h-32 rounded-md mb-6 pl-3 focus:ring-2 focus:ring-cyan-500 outline-none"
+				className="bg-white h-32 rounded-md mb-6 pl-2 mx-3 text-xs focus:ring-2 focus:ring-cyan-500 outline-none"
+				required
 			/>
 
-			<label className=" text-sm font-bold mb-1">Especificaciones</label>
+			<label className="pl-5 text-sm font-medium mb-2">Especificaciones</label>
 			<textarea
 				{...register("especificaciones")}
 				rows="10"
 				cols="50"
 				type="text"
 				placeholder="Especificaciones del producto"
-				className="bg-cyan-50 rounded-md h-32 mb-6 pl-3 focus:ring-2 focus:ring-cyan-500 outline-none"
+				className="bg-white rounded-md h-32 mb-6 pl-2 mx-3 text-xs focus:ring-2 focus:ring-cyan-500 outline-none"
+				required
 			/>
-			<label className=" text-sm font-bold mb-1 ">Categoria</label>
+			<label className="pl-5 text-sm font-medium mb-2 ">Categoria</label>
 			<input
 				{...register("categoria_id")}
 				type="number"
 				placeholder="Nombre del producto"
-				className=" mb-6 h-9 rounded-md bg-cyan-50 text-xs pl-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				className=" mb-6 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				required
 			/>
 
-			<label className=" text-sm font-bold mb-1">Cantidad</label>
+			<label className="pl-5 text-sm font-medium mb-2">Cantidad</label>
 			<input
 				{...register("cantidad")}
 				type="number"
 				placeholder="Cantidad del producto"
-				className="bg-cyan-50 rounded-md h-9 mb-6 pl-3 focus:ring-2 focus:ring-cyan-500 outline-none"
+				className="bg-white rounded-md h-9 mb-6 pl-2 mx-3 text-xs focus:ring-2 focus:ring-cyan-500 outline-none"
+				required
 			/>
-			<label className=" text-sm font-bold mb-1 ">Costo unitario</label>
+			<label className="pl-5 text-sm font-medium mb-2">Costo unitario</label>
 			<input
 				{...register("costo_unitario")}
 				type="number"
 				placeholder="Costo unitario"
-				className=" mb-6 h-9 rounded-md bg-cyan-50 text-xs pl-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				className=" mb-6 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				required
 			/>
-			<label className=" text-sm font-bold mb-1 ">Porcentaje utilidad</label>
+			<label className="pl-5 text-sm font-medium mb-2">
+				Porcentaje utilidad
+			</label>
 			<input
 				{...register("porcentaje_utilidad")}
 				type="number"
 				placeholder="Nombre del producto"
-				className=" mb-6 h-9 rounded-md bg-cyan-50 text-xs pl-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				className=" mb-6 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				required
 			/>
-			<label className=" text-sm font-bold mb-1 ">Disponible</label>
+			<label className="pl-5 text-sm font-medium mb-2">Disponible</label>
 			<input
 				{...register("disponible")}
 				type="text"
 				list="boolean-options"
 				placeholder="disponible"
-				className=" mb-6 h-9 rounded-md bg-cyan-50 text-xs pl-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				className=" mb-6 h-9 rounded-md bg-white pl-2 text-xs mx-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				required
 			/>
 			<datalist id="boolean-options">
 				<option value="si" />
 				<option value="no" />
 			</datalist>
-			<label className=" text-sm font-bold mb-1 ">Destacado</label>
+			<label className="pl-5 text-sm font-medium mb-2">Destacado</label>
 			<input
 				{...register("destacado")}
 				type="boolean"
 				placeholder="destacado"
-				className=" mb-6 h-9 rounded-md bg-cyan-50 text-xs pl-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				className=" mb-6 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				required
 			/>
-			<label className=" text-sm font-bold mb-1 ">Propietario</label>
+			<label className="pl-5 text-sm font-medium mb-2">Propietario</label>
 			<input
 				{...register("propietario")}
 				type="text"
 				placeholder="destacado"
-				className=" mb-6 h-9 rounded-md bg-cyan-50 text-xs pl-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				className=" mb-6 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				required
 			/>
-			<label className=" text-sm font-bold mb-1 ">Nombre comercial</label>
+			<label className="pl-5 text-sm font-medium mb-2">Nombre comercial</label>
 			<input
 				{...register("nombre_comercial")}
 				type="text"
 				placeholder="nombre comercial"
-				className=" mb-6 h-9 rounded-md bg-cyan-50 text-xs pl-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				className=" mb-6 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				required
 			/>
-			<label className=" text-sm font-bold mb-1 ">Precio comercial</label>
+			<label className="pl-5 text-sm font-medium mb-2">Precio comercial</label>
 			<input
 				{...register("precio_comercial")}
 				type="number"
 				placeholder="precio comercial"
-				className=" mb-6 h-9 rounded-md bg-cyan-50 text-xs pl-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				className=" mb-6 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none "
+				required
 			/>
 
 			<button

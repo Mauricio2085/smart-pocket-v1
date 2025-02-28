@@ -5,7 +5,6 @@ const uploadToCloudinary = async (file) => {
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
 	// 1️⃣ Solicitar la firma segura al backend
 	const signatureResponse = await axios.get(`${API_URL}/get-signature`);
-	console.log("Respuesta del backend: ", signatureResponse.data);
 	const { timestamp, signature, api_key } = await signatureResponse.data;
 
 	// 2️⃣ Crear el FormData con la firma obtenida
