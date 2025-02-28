@@ -154,26 +154,35 @@ const CreateForm = () => {
 				required
 			/>
 			<label className="pl-5 text-sm font-medium mb-2">Disponible</label>
-			<input
+			<select
 				{...register("disponible")}
 				type="text"
-				list="boolean-options"
+				list="disponible-options"
 				placeholder="disponible"
 				className=" mb-6 h-9 rounded-md bg-white pl-2 text-xs mx-3 focus:ring-2 focus:ring-cyan-500 outline-none "
 				required
-			/>
-			<datalist id="boolean-options">
-				<option value="si" />
-				<option value="no" />
-			</datalist>
+			>
+				<option value="" disabled selected>
+					Elige una opción
+				</option>
+				<option value="Opción 1">Si</option>
+				<option value="Opción 2">No</option>
+			</select>
 			<label className="pl-5 text-sm font-medium mb-2">Destacado</label>
-			<input
+			<select
 				{...register("destacado")}
-				type="boolean"
+				type="text"
+				list="destacados-options"
 				placeholder="destacado"
 				className=" mb-6 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none "
 				required
-			/>
+			>
+				<option value="" disabled selected>
+					Elige una opción
+				</option>
+				<option value="Opción 1">Si</option>
+				<option value="Opción 2">No</option>
+			</select>
 			<label className="pl-5 text-sm font-medium mb-2">Propietario</label>
 			<input
 				{...register("propietario")}
