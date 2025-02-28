@@ -30,7 +30,7 @@ const CreateProducts = () => {
 					Logout
 				</button>
 			</section>
-			<div class=" w-full px-8 ">
+			<div class=" w-full px-8 md:px-40 py-10">
 				<CreateForm />
 			</div>
 		</>
