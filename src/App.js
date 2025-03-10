@@ -9,6 +9,7 @@ import { AdminPage } from "./pages/AdminPage";
 import { SearchResults } from "./pages/SearchResults";
 import { Dashboard } from "./pages/Dashboard";
 import { CreateProducts } from "./pages/CreateProducts";
+import { ErrorPage } from "./pages/ErrorPage";
 
 const App = () => {
 	return (
@@ -44,6 +45,7 @@ const App = () => {
 					<Route path="search" element={<MainLayout />}>
 						<Route index element={<SearchResults />} />
 					</Route>
+					<Route path="*" element={<ErrorPage />} />
 				</Routes>
 			</BrowserRouter>
 		</>
