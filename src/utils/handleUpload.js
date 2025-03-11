@@ -22,6 +22,7 @@ const uploadToCloudinary = async (file) => {
 		const result = await response.data;
 		const data = result.secure_url;
 		console.log(data); // URL de la imagen subida
+		return data;
 	} catch (error) {
 		throw new Error("Error al cargar la imagen!");
 	}
