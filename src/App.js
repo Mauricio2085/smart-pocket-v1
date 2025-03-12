@@ -10,6 +10,7 @@ import { SearchResults } from "./pages/SearchResults";
 import { Dashboard } from "./pages/Dashboard";
 import { CreateProducts } from "./pages/CreateProducts";
 import { ErrorPage } from "./pages/ErrorPage";
+import { Detail } from "./pages/Detail";
 
 const App = () => {
 	return (
@@ -33,6 +34,7 @@ const App = () => {
 					<Route path="/admin" element={<AdminPage />}>
 						<Route index element={<Dashboard />} />
 						<Route path="crear-producto" element={<CreateProducts />} />
+						<Route path="detail/:productId" element={<Detail />} />
 						<Route
 							path="modificar-producto"
 							element={<h1>Modificar productos</h1>}
