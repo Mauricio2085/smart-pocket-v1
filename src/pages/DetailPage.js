@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContex";
 import { Loading } from "../components/Loading";
 import { Error } from "../components/Error";
+import { formattedAmount } from "../utils/formattedAmount";
 
 const Detail = () => {
 	const { productId } = useParams();
@@ -64,122 +65,122 @@ const Detail = () => {
 					</caption>
 					<tbody>
 						<tr key={product.id_producto} className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								id
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg max-w-xs">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px]">
 								{product.id_producto}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Nombre
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[150px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] truncate">
 								{product.nombre_producto}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Nombre comercial
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[150px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] truncate">
 								{product.nombre_comercial}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Cantidad
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] truncate">
 								{product.cantidad}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Costo unitario
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
-								{product.costo_unitario}
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] truncate">
+								{formattedAmount(product.costo_unitario)}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Utilidad
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
-								{product.porcentaje_utilidad}
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] truncate">
+								{Math.trunc(product.porcentaje_utilidad)}%
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Precio venta UND
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
-								{product.precio_venta}
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] truncate">
+								{formattedAmount(product.precio_venta)}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Precio comercial
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
-								{product.precio_comercial}
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] truncate">
+								{formattedAmount(product.precio_comercial)}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Categoría
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] text-ellipsis">
 								{product.nombre_categoria}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px]">
 								Descripción
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] text-ellipsis">
 								{product.descripcion}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px]">
 								Especificaciones
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] text-ellipsis">
 								{product.especificaciones}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Disponible
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] truncate">
 								{disponibleString(product.disponible)}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Destacado
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] truncate">
 								{destacadoString(product.destacado)}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px] truncate">
 								Propietario
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px] truncate">
 								{product.propietario}
 							</td>
 						</tr>
 						<tr className=" border">
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-DynaPuff font-medium w-[80px]">
 								Imagen producto
 							</td>
-							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg max-w-[100px] truncate">
+							<td className="py-2 border text-center text-xs md:text-sm lg:text-lg w-[80px]">
 								<img
 									src={product.imagen_producto}
 									alt={product.imagen_producto}

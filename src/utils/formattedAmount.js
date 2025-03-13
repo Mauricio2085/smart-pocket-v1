@@ -1,4 +1,4 @@
-const useFormattedAmount = (amount) => {
+const formattedAmount = (amount) => {
 	return new Intl.NumberFormat("es-CO", {
 		style: "currency",
 		currency: "COP",
@@ -8,4 +8,4 @@ const useFormattedAmount = (amount) => {
 	}).format(amount);
 };
 
-export { useFormattedAmount };
+export { formattedAmount };

@@ -2,6 +2,7 @@ import { useFetch } from "../hooks/useFetch";
 import { useAuth } from "../context/AuthContex";
 import { useNavigate, Link } from "react-router-dom";
 import { Loading } from "../components/Loading";
+import { Error } from "../components/Error";
 import { AiFillEdit } from "react-icons/ai";
 import { AiFillDelete } from "react-icons/ai";
 
@@ -14,7 +15,7 @@ const Dashboard = () => {
 	const { data, loading, error } = useFetch(`${API_URL}/dashboard/sumary`);
 
 	if (!!loading) return <Loading />;
-	if (!!error) return <h1>Error</h1>;
+	if (!!error) return <Error />;
 
 	console.log(data);
 	return (
@@ -41,8 +42,8 @@ const Dashboard = () => {
 					Logout
 				</button>
 			</section>
-			<div className=" px-8 overflow-x-auto">
-				<table className=" w-full px-5 lg:px-36 my-5">
+			<div className=" px-8 md:px-12 xl:px-80 overflow-x-auto">
+				<table className=" w-full my-5">
 					<caption className="px-4 py-2 border text-center bg-cyan-50">
 						<h1 className="font-DynaPuff text-xl">
 							Lista de productos en stock

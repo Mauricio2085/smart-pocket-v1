@@ -4,7 +4,6 @@ import "swiper/css";
 import "swiper/css/bundle";
 import { Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
 import { Card } from "./Card";
-import { Link } from "react-router-dom";
 
 const ProductCarousel = ({ data }) => {
 	let cardOnCarousel = true;
@@ -34,18 +33,15 @@ const ProductCarousel = ({ data }) => {
 				{data.map((product) => {
 					return (
 						<SwiperSlide key={product.id_producto}>
-							<Link
-								to={`../../productos/product-detail/${product.id_producto}`}
-							>
-								<Card
-									descripcionProducto={product.descripcion}
-									imagenProducto={product.imagen_producto}
-									nombreProducto={product.nombre_producto}
-									precioOferta={product.precio_venta}
-									precioVenta={product.precio_venta}
-									cardOnCarousel={cardOnCarousel}
-								/>
-							</Link>
+							<Card
+								idProducto={product.id_producto}
+								descripcionProducto={product.descripcion}
+								imagenProducto={product.imagen_producto}
+								nombreProducto={product.nombre_producto}
+								precioOferta={product.precio_venta}
+								precioVenta={product.precio_venta}
+								cardOnCarousel={cardOnCarousel}
+							/>
 						</SwiperSlide>
 					);
 				})}
