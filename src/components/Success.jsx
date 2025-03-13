@@ -12,7 +12,7 @@ const Success = ({ message, setSuccessMessage }) => {
 					className="border-yellow-100 border rounded-md bg-gradient-to-l from-cyan-500 to-blue-500 justify-center items-center w-[95px] h-8 mx-auto lg:w-[150px] lg:h-14"
 					onClick={() => {
 						setSuccessMessage("");
-						navigate("./");
+						navigate("/admin");
 					}}
 				>
 					Regresa

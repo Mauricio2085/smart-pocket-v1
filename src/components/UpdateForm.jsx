@@ -1,11 +1,29 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { uploadToCloudinary } from "../utils/handleUpload";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Error } from "./Error";
 import { Success } from "./Success";
 
-const CreateForm = () => {
+const UpdateForm = ({ product }) => {
+	const idCategorySelected = (categoryName) => {
+		try {
+			const productCategories = {
+				Aseo: 1,
+				Ferretería: 2,
+				Juguetería: 3,
+				Mascotas: 4,
+				Hogar: 5,
+				Electrodomésticos: 6,
+				Accesorios: 7,
+			};
+			return productCategories[categoryName];
+		} catch (error) {
+			throw new Error("Error al seleccionar la categoría");
+		}
+	};
+
+	console.log("LO que llega al formulario de actualización: ", product);
 	const { register, handleSubmit, reset } = useForm();
 	const [customFileName, setCustomFileName] = useState(
 		"Ningún archivo seleccionado"
@@ -33,22 +51,16 @@ const CreateForm = () => {
 		console.log("File uploaded: ", file);
 	};
 
-	const idCategorySelected = (categoryName) => {
-		try {
-			const productCategories = {
-				Aseo: 1,
-				Ferretería: 2,
-				Juguetería: 3,
-				Mascotas: 4,
-				Hogar: 5,
-				Electrodomésticos: 6,
-				Accesorios: 7,
-			};
-			return productCategories[categoryName];
-		} catch (error) {
-			throw new Error("Error al seleccionar la categoría");
+	useEffect(() => {
+		if (product) {
+			reset({
+				...product,
+				destacado: product.destacado ? "Si" : "No",
+				disponible: product.disponible ? "Si" : "No",
+				categoria_name: product.nombre_categoria,
+			});
 		}
-	};
+	}, [product, reset]);
 
 	const onSubmit = async (data) => {
 		try {
@@ -61,26 +73,29 @@ const CreateForm = () => {
 			const categoryId = idCategorySelected(data.categoria_name);
 
 			const cleanData = {
+				id_producto: Number(data.productId || null),
 				nombre_producto: cleanerText(data.nombre_producto),
 				imagen_producto: imageUrl,
 				descripcion: data.descripcion,
 				especificaciones: data.especificaciones,
 				categoria_id: categoryId,
 				cantidad: data.cantidad,
-				costo_unitario: data.costo_unitario,
-				porcentaje_utilidad: data.porcentaje_utilidad,
+				costo_unitario: parseFloat(data.costo_unitario),
+				porcentaje_utilidad: parseFloat(data.porcentaje_utilidad),
 				disponible: toBoolean(data.disponible),
 				destacado: toBoolean(data.destacado),
 				propietario: cleanerText(data.propietario),
 				nombre_comercial: cleanerText(data.nombre_comercial),
-				precio_comercial: data.precio_comercial,
+				precio_comercial: parseFloat(data.precio_comercial),
 			};
-			console.log("Clean data: ", cleanData);
-			const response = await axios.post(`${API_URL}/crear-producto`, cleanData);
+			console.log(cleanData);
+			const response = await axios.patch(
+				`${API_URL}/modificar-producto`,
+				cleanData
+			);
 			setSuccessMessage(response.data.message);
 			setfilePhoto(null);
 			setCustomFileName("Ningún archivo seleccionado");
-			reset();
 		} catch (error) {
 			if (error?.response?.data?.message) {
 				console.log(error.response.data.message);
@@ -111,6 +126,18 @@ const CreateForm = () => {
 				className="bg-gradient-to-r from-cyan-500 to-blue-500 w-full flex flex-col shadow-md font-DynaPuff lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3"
 			>
 				<div className="w-full flex flex-col">
+					<label className="pl-5 text-sm font-medium my-2 lg:text-lg">
+						id producto
+					</label>
+					<input
+						{...register("productId")}
+						type="number"
+						value={product.id_producto}
+						readOnly
+						disabled
+						className=" w-10 mb-5 h-9 text-center rounded-md bg-cyan-200 text-xs mx-3 outline-none lg:text-sm lg:h-11 xl:text-center"
+						title="id producto"
+					/>
 					<label className="pl-5 text-sm font-medium my-2 lg:text-lg">
 						Nombre del producto
 					</label>
@@ -321,11 +348,11 @@ const CreateForm = () => {
 					type="submit"
 					className=" my-3 mx-5 bg-yellow-100 rounded-md border-0 w-auto cursor-pointer text-base font-bold h-10 lg:self-center lg:text-lg lg:h-11"
 				>
-					Crear producto
+					Actualizar producto
 				</button>
 			</form>
 		</>
 	);
 };
 
-export { CreateForm };
+export { UpdateForm };

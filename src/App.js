@@ -10,7 +10,8 @@ import { SearchResults } from "./pages/SearchResults";
 import { Dashboard } from "./pages/Dashboard";
 import { CreateProducts } from "./pages/CreateProducts";
 import { ErrorPage } from "./pages/ErrorPage";
-import { Detail } from "./pages/Detail";
+import { Detail } from "./pages/DetailPage";
+import { UpdateProductsPage } from "./pages/UpdateProductsPage";
 
 const App = () => {
 	return (
@@ -36,8 +37,8 @@ const App = () => {
 						<Route path="crear-producto" element={<CreateProducts />} />
 						<Route path="detail/:productId" element={<Detail />} />
 						<Route
-							path="modificar-producto"
-							element={<h1>Modificar productos</h1>}
+							path="modificar-producto/:productId"
+							element={<UpdateProductsPage />}
 						/>
 						<Route
 							path="eliminar-producto"
