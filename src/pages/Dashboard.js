@@ -1,6 +1,6 @@
 import { useFetch } from "../hooks/useFetch";
 import { useAuth } from "../context/AuthContex";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Loading } from "../components/Loading";
 import { AiFillEdit } from "react-icons/ai";
 import { AiFillDelete } from "react-icons/ai";
@@ -62,7 +62,7 @@ const Dashboard = () => {
 							<th className="px-4 py-2 border text-center w-[100px] truncate">
 								PRECIO VENTA UND
 							</th>
-							<th className="px-4 py-2 border text-center w-[150px] truncate">
+							<th className="px-4 py-2 border text-center truncate">
 								ACCIONES
 							</th>
 						</tr>
@@ -83,25 +83,36 @@ const Dashboard = () => {
 									<td className="px-4 py-2 border text-center w-[100px] truncate">
 										{product.precio_venta}
 									</td>
-									<td className="px-4 py-2 border text-center max-w-[200px]">
-										<div className=" flex justify-center items-center gap-4 w-full">
-											<NavLink
+									<td className="px-4 py-2 border text-center w-[100px]">
+										<div className=" flex justify-center items-center w-full">
+											<Link
 												to={`./detail/${product.id_producto}`}
-												className={({ isActive }) =>
-													isActive
-														? "text-yellow-100 font-bold w-1/3"
-														: "text-cyan-600 w-1/3"
-												}
+												className="w-[100px]"
+												aria-label="Lista producto completo"
+												title="Lista producto completo"
 											>
-												<span className=" underline">datalles</span>
-											</NavLink>
-
-											<span className="w-1/3 pl-5 text-blue-600">
-												<AiFillEdit />
-											</span>
-											<span className="w-1/3 pl-5 text-red-600">
-												<AiFillDelete />
-											</span>
+												<span className="w-full underline">datalles</span>
+											</Link>
+											<Link
+												to={`./modificar-producto/${product.id_producto}`}
+												className="w-[100px] pl-5 flex"
+												aria-label="Editar producto"
+												title="Editar producto"
+											>
+												<span className="w-full pl-5 text-blue-600">
+													<AiFillEdit />
+												</span>
+											</Link>
+											<Link
+												to={`./eliminar-producto/${product.id_producto}`}
+												className="w-[100px] pl-5 flex justify-center items-center"
+												aria-label="Eliminar producto"
+												title="Eliminar producto"
+											>
+												<span className="w-full pl-5 text-red-600 ">
+													<AiFillDelete />
+												</span>
+											</Link>
 										</div>
 									</td>
 								</tr>

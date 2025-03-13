@@ -39,11 +39,11 @@ const Detail = () => {
 			<section className=" w-full h-10 px-5 md:px-20 lg:px-36 flex justify-end items-center font-DynaPuff text-sm m-auto bg-gradient-to-r from-cyan-500 to-blue-500">
 				<button
 					onClick={() => {
-						navigate("./crear-producto");
+						navigate("/admin");
 					}}
 					className="px-4 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500"
 				>
-					crear producto
+					Dashboard
 				</button>
 				<button
 					onClick={() => {
@@ -153,6 +153,14 @@ const Detail = () => {
 						</tr>
 						<tr className=" border">
 							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+								Disponible
+							</td>
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
+								{disponibleString(product.disponible)}
+							</td>
+						</tr>
+						<tr className=" border">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
 								Destacado
 							</td>
 							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
@@ -161,10 +169,22 @@ const Detail = () => {
 						</tr>
 						<tr className=" border">
 							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
-								Disponible
+								Propietario
 							</td>
 							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg w-[100px] truncate">
-								{disponibleString(product.disponible)}
+								{product.propietario}
+							</td>
+						</tr>
+						<tr className=" border">
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg font-bold w-[100px] truncate">
+								Imagen producto
+							</td>
+							<td className="px-4 py-2 border text-center text-xs md:text-sm lg:text-lg max-w-[100px] truncate">
+								<img
+									src={product.imagen_producto}
+									alt={product.imagen_producto}
+									className="w-32 h-32 object-cover mx-auto rounded-md"
+								/>
 							</td>
 						</tr>
 					</tbody>
