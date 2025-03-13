@@ -41,6 +41,7 @@ const SearchResults = () => {
 						data.map((product) => (
 							<Card
 								key={product.id_producto}
+								idProducto={product.id_producto}
 								imagenProducto={product.imagen_producto}
 								nombreProducto={product.nombre_producto}
 								precioOferta={product.precio_venta}

@@ -12,6 +12,7 @@ import { CreateProducts } from "./pages/CreateProducts";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Detail } from "./pages/DetailPage";
 import { UpdateProductsPage } from "./pages/UpdateProductsPage";
+import { DeleteProductsPage } from "./pages/DeleteProductsPage";
 
 const App = () => {
 	return (
@@ -41,8 +42,8 @@ const App = () => {
 							element={<UpdateProductsPage />}
 						/>
 						<Route
-							path="eliminar-producto"
-							element={<h1>Eliminar productos</h1>}
+							path="eliminar-producto/:productId"
+							element={<DeleteProductsPage />}
 						/>
 					</Route>
 					<Route path="search" element={<MainLayout />}>

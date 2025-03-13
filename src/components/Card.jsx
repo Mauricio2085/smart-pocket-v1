@@ -1,15 +1,17 @@
 import React from "react";
-import { useFormattedAmount } from "../hooks/useFormattedAmount";
+import { formattedAmount } from "../utils/formattedAmount";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({
+	idProducto,
 	nombreProducto,
 	imagenProducto,
 	precioVenta,
 	precioOferta,
 	cardOnCarousel,
 }) => {
-	const formattedAmount = useFormattedAmount;
 	let paddingCarousel = !!cardOnCarousel ? "2xl:pr-8 md:mt-0" : "";
+	const navigate = useNavigate();
 
 	return (
 		<>
@@ -49,7 +51,12 @@ const Card = ({
 				<div
 					className={`w-full h-10 mt-5 md:mb-0 order-4 md:col-span-1 md:col-start-2 self-end 0.5xl:pl-20 3xl:pl-30  rounded-md`}
 				>
-					<button className=" w-full h-full bg-cyan-500 rounded-md font-DynaPuff md:text-md font-medium">
+					<button
+						className=" w-full h-full bg-cyan-500 rounded-md font-DynaPuff md:text-md font-medium"
+						onClick={() =>
+							navigate(`../../productos/product-detail/${idProducto}`)
+						}
+					>
 						Detalles de producto
 					</button>
 				</div>

@@ -1,4 +1,4 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Card } from "../components/Card";
 import { Loading } from "../components/Loading";
 import { useFetch } from "../hooks/useFetch";
@@ -34,19 +34,15 @@ const CategoryPage = () => {
 					<section className="w-full px-8 pb-8 grid xl:grid-cols-2 xl:gap-6 border-slate-100 md:my-8 drop-shadow-md ">
 						{data.map((product) => {
 							return (
-								<Link
-									key={product.id_producto}
-									to={`../../productos/product-detail/${product.id_producto}`}
-								>
-									<Card
-										imagenProducto={product.imagen_producto}
-										nombreProducto={product.nombre_producto}
-										precioOferta={product.precio_venta}
-										precioVenta={product.precio_comercial}
-										descripcionProducto={product.descripcion}
-										especificacionesProducto={product.especificaciones}
-									/>
-								</Link>
+								<Card
+									idProducto={product.id_producto}
+									imagenProducto={product.imagen_producto}
+									nombreProducto={product.nombre_producto}
+									precioOferta={product.precio_venta}
+									precioVenta={product.precio_comercial}
+									descripcionProducto={product.descripcion}
+									especificacionesProducto={product.especificaciones}
+								/>
 							);
 						})}
 					</section>
