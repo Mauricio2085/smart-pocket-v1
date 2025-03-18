@@ -39,7 +39,7 @@ const ProductCarousel = ({ data }) => {
 								imagenProducto={product.imagen_producto}
 								nombreProducto={product.nombre_producto}
 								precioOferta={product.precio_venta}
-								precioVenta={product.precio_venta}
+								precioVenta={product.precio_comercial}
 								cardOnCarousel={cardOnCarousel}
 							/>
 						</SwiperSlide>
