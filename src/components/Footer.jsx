@@ -12,9 +12,9 @@ const Footer = () => {
 		<footer className="w-full flex flex-col justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
 			<div className="w-full h-40 px-5 flex justify-between lg:flex md:px-20 md:py-16 lg:px-36 lg:py-16 md:h-80">
 				<SmartIcons iconType={"footer"} />
-				<div className="hidden md:flex flex-col items-start md:40 xl:mr-60">
+				<div className="hidden md:flex flex-col items-start">
 					<h2 className="text-lg font-DynaPuff font-medium">Categorias</h2>
-					<ul className="text-white text-md font-DynaPuff">
+					<ul className="w-full text-white text-md font-DynaPuff grid grid-cols-2 flex-1">
 						<Link to={"../categorias/aseo/1"}>
 							<li className="mt-2">Aseo</li>
 						</Link>
@@ -32,6 +32,9 @@ const Footer = () => {
 						</Link>
 						<Link to={"../categorias/electrodomesticos/6"}>
 							<li className="mt-2">Electrodomésticos</li>
+						</Link>
+						<Link to={"../categorias/accesorios/7"}>
+							<li className="mt-2">Accesorios</li>
 						</Link>
 					</ul>
 				</div>
