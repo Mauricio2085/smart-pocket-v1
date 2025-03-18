@@ -41,10 +41,10 @@ const ProductCard = ({
 						</div>
 						<div className=" mt-2 flex flex-col justify-between">
 							<div className=" flex justify-between w-full ">
-								<p className=" font-DynaPuff font-extralight ">
+								<p className=" font-DynaPuff font-extralight line-through text-red-500">
 									{formattedAmount(precioVenta)}
 								</p>
-								<p className=" font-DynaPuff ">
+								<p className=" font-DynaPuff font-extralight text-cyan-500">
 									{formattedAmount(precioOferta)}
 								</p>
 							</div>
