@@ -1,70 +1,154 @@
-# Getting Started with Create React App
+# Smart Pocket v1 (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Smart Pocket es una aplicación web para venta de productos nuevos y saldos mediante tarjetas de presentación de productos y consultas vía whatsapp al propietario. Este repositorio contiene el código fuente del frontend, desarrollado con React.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- Gestión administrativa: Permite al propietario gestionar (registrar, modificar, eliminar y consultar) los productos en su inventario.
 
-### `npm start`
+- Visualización: Ofrece tarjetas y tablas de productos con información sencilla y clara.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Interfaz Intuitiva: Diseño responsivo y fácil de usar.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tecnologías Utilizadas
 
-### `npm test`
+- **React:** Biblioteca principal para la construcción de la interfaz de usuario.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Tailwind CSS:** Framework de CSS para estilos.
 
-### `npm run build`
+- **Axios:** Cliente HTTP para la comunicación con el backend.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React Router:** Manejo de rutas dentro de la aplicación.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **React Hook Form:** Manejo de formularios.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Swiper:** Carrusel de tarjetas de productos destacados.
 
-### `npm run eject`
+- **React Icons:** Iconografía de la app
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Requisitos Previos
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Node.js:** Se recomienda tener instalada la versión 20.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **npm:** Generalmente incluido con Node.js.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Instalación
 
-## Learn More
+1. Clonar el repositorio:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+git clone https://github.com/Mauricio2085/smart-pocket-v1.git
+cd smart-pocket-v1
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Instalar dependencias:
 
-### Code Splitting
+`npm install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Configuración de variables de entorno:
 
-### Analyzing the Bundle Size
+Crea un archivo .env asegurándose que esté en la raíz del proyecto y añade las siguientes variables:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`REACT_APP_API_URL=http://localhost:5000/api`
 
-### Making a Progressive Web App
+Ajusta REACT_APP_API_URL según la URL de tu backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Scripts Disponibles
 
-### Advanced Configuration
+En el directorio del proyecto, puedes ejecutar:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- npm start: Inicia la aplicación en modo desarrollo. Accede a http://localhost:3000 para verla en el navegador.
 
-### Deployment
+- npm run build: Construye la aplicación para producción en la carpeta build. Los archivos quedarán listos para ser desplegados.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Secciones de la Aplicación
 
-### `npm run build` fails to minify
+### 1. Inicio de Sesión (Privado)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Permite al propietario iniciar sesión con sus credenciales previamente almacenadas en la base de datos (postgresql).
+
+- Utiliza autenticación segura con JWT.
+
+### 2. Panel de administración (Privado)
+
+- Muestra un resumen de los productos y permite ver detalles de cada producto, modificarlos o eliminarlos.
+
+- Incluye botones para cerrar sesión y crear producto.
+
+### 3. Gestión de productos (Privado)
+
+- **Crear Producto:** Permite agregar nuevos productos con sus respectivas características.
+
+- **Editar Producto:** Modifica la información de un producto existente.
+
+- **Eliminar Producto:** Permite eliminar un producto del inventario.
+
+- **Detalles:** Muestra la información completa del producto seleccionado.
+
+### 4. Visualización de Productos (Público)
+
+- Permite seleccionar categorías de productos y realizar búsquedas.
+
+- Sección de productos destacados.
+
+### 5. Vista del Producto (Público)
+
+- Muestra los detalles del producto.
+
+- Envío de detalles de producto al propietario vía Whatsapp para consultas personalizadas y negociación final.
+
+## Datos y API
+
+Este frontend interactúa con una API REST desarrollada en Express.js. Para más información sobre la estructura de la base de datos y los endpoints disponibles, consulta el README del backend en [Smart Pocket Backend](https://github.com/Mauricio2085/Smart_Pocket_Backend.git).
+
+## Despliegue
+
+La aplicación puede ser desplegada en servicios como Vercel, Netlify o cualquier servidor que sirva archivos estáticos. Asegurarse de configurar correctamente las variables de entorno producción.
+
+Ejemplo variable de entorno:
+
+`REACT_APP_API_URL=http://mi-backend.com/api`
+
+## Estado del Proyecto
+
+**En desarrollo:**
+
+- Aún se están implementando nuevas funcionalidades y mejoras.
+
+- Las mejoras planeadas incluyen optimización de la UI, refactorización de código y nuevas funcionalidades.
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Para contribuir:
+
+1. Puedes realizar un fork del proyecto:
+
+```sh
+# Realizar un fork manualmente en GitHub y luego clonar el repositorio forkeado
+git clone https://github.com/TU_USUARIO/smart-pocket-v1.git
+cd smart-pocket-v1
+```
+
+2. Crea una nueva rama:
+
+```sh
+git checkout -b feature/nueva-funcionalidad
+```
+
+3. Realiza los cambios y haz commit:
+
+```sh
+git commit -m 'Añadir nueva funcionalidad'
+```
+
+4. Sube los cambios:
+
+```sh
+git push origin feature/nueva-funcionalidad
+```
+
+5. Abre un Pull Request.
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
