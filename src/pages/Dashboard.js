@@ -92,7 +92,7 @@ const Dashboard = () => {
 												aria-label="Lista producto completo"
 												title="Lista producto completo"
 											>
-												<span className="w-full underline">datalles</span>
+												<span className="w-full underline">detalles</span>
 											</Link>
 											<Link
 												to={`./modificar-producto/${product.id_producto}`}
