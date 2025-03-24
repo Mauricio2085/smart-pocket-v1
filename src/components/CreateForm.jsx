@@ -76,7 +76,10 @@ const CreateForm = () => {
 				precio_comercial: data.precio_comercial,
 			};
 			console.log("Clean data: ", cleanData);
-			const response = await axios.post(`${API_URL}/crear-producto`, cleanData);
+			const response = await axios.post(
+				`${API_URL}/admin/productos`,
+				cleanData
+			);
 			setSuccessMessage(response.data.message);
 			setfilePhoto(null);
 			setCustomFileName("Ningún archivo seleccionado");

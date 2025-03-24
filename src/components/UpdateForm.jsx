@@ -90,7 +90,7 @@ const UpdateForm = ({ product }) => {
 			};
 			console.log(cleanData);
 			const response = await axios.patch(
-				`${API_URL}/modificar-producto`,
+				`${API_URL}/admin/productos`,
 				cleanData
 			);
 			setSuccessMessage(response.data.message);
