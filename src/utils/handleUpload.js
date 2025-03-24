@@ -1,6 +1,13 @@
 import axios from "axios";
 
 const uploadToCloudinary = async (file) => {
+	const isDemo = window.location.hostname.includes("localhost");
+	console.log("isDemo", isDemo);
+
+	const CLOUDINARY_URL = isDemo
+		? "https://api.cloudinary.com/v1_1/smartdemo/image/upload"
+		: "https://api.cloudinary.com/v1_1/smartpocket/image/upload";
+
 	const API_URL =
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
 	//Solicitar la firma segura al backend
@@ -15,10 +22,7 @@ const uploadToCloudinary = async (file) => {
 		formData.append("signature", signature);
 
 		//Subir la imagen a Cloudinary
-		const response = await axios.post(
-			"https://api.cloudinary.com/v1_1/smartpocket/image/upload",
-			formData
-		);
+		const response = await axios.post(CLOUDINARY_URL, formData);
 		const result = await response.data;
 		const data = result.secure_url;
 		console.log(data); // URL de la imagen subida
