@@ -40,7 +40,7 @@ const Footer = () => {
 				</div>
 				<div className="w-7 lg:w-11 m-10 lg:mr-20 flex self-center ">
 					<button onClick={() => window.open(whpUrl)}>
-						<img src={footerWhatsapp} alt="Logo de smart Pocket" />
+						<img src={footerWhatsapp} alt="Logo de whatsapp" />
 					</button>
 				</div>
 			</div>
