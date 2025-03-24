@@ -35,7 +35,7 @@ const DeleteProductsPage = () => {
 
 	const deleteProduct = async () => {
 		console.log("Entrada al delete");
-		const response = await axios.delete(`${API_URL}/eliminar-producto`, {
+		const response = await axios.delete(`${API_URL}/admin/productos`, {
 			data: { id_producto: productId },
 		});
 		console.log("Respuesta: ", response);
