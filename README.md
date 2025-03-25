@@ -106,7 +106,13 @@ En el directorio del proyecto, puedes ejecutar:
 
 ## Datos y API
 
-Este frontend interactúa con una API REST desarrollada en Express.js. Para más información sobre la estructura de la base de datos y los endpoints disponibles, consulta el README del backend en [Smart Pocket Backend](https://github.com/Mauricio2085/Smart_Pocket_Backend.git).
+Este frontend se conecta a una API REST desarrollada con Express.js y PostgreSQL.
+
+🔹 **Documentación completa:** Consulta el README del backend para más detalles sobre la estructura de la base de datos, endpoints disponibles y cómo utilizar la API demo.
+
+🔹**Prueba la API en Railway:** Sigue las instrucciones en el backend para usar la API demo desplegada.
+
+🔹**Repositorio Backend:** [Smart Pocket Backend](https://github.com/Mauricio2085/Smart_Pocket_Backend.git)
 
 ## Despliegue
 

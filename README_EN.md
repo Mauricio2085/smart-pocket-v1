@@ -104,9 +104,15 @@ In the project directory, you can run:
 
 - Sends product details to the owner via WhatsApp for personalized inquiries and final negotiation.
 
-## Data and API
+## Data & API
 
-This frontend interacts with a REST API developed in Express.js. For more information on the database structure and available endpoints, refer to the backend README at [Smart Pocket Backend](https://github.com/Mauricio2085/Smart_Pocket_Backend.git).
+This frontend connects to a REST API built with Express.js and PostgreSQL.
+
+🔹**Full Documentation:** Check the backend README for details on the database structure, available endpoints, and how to use the demo API.
+
+🔹**Try the API on Railway:** Follow the backend instructions to test the deployed API.
+
+🔹**Backend Repository:** [Smart Pocket Backend](https://github.com/Mauricio2085/Smart_Pocket_Backend.git).
 
 ## Deployment
 
