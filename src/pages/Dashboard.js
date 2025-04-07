@@ -37,7 +37,7 @@ const Dashboard = () => {
 				<button
 					onClick={() => {
 						logout();
-						navigate("/login");
+						navigate("/");
 					}}
 					className="w-20 ml-5 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500"
 				>
