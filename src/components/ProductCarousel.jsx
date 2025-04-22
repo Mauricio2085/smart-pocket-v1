@@ -6,7 +6,8 @@ import { Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
 import { Card } from "./Card";
 
 const ProductCarousel = ({ data }) => {
-	let cardOnCarousel = true;
+	let cardOnCarousel = data.filter((product) => product.destacado === true);
+
 	return (
 		<section className="w-full px-5 xl:px-36 flex flex-col items-center justify-center lg:my-16 font-DynaPuff font-semibold ">
 			<h1 className=" my-8 md:my-20 px-5 xl:px-36 text-center font-DynaPuff text-[1.7rem] md:text-[2.2rem] 2xl:text-[3.5rem] ">
@@ -30,7 +31,7 @@ const ProductCarousel = ({ data }) => {
 				modules={[Pagination, Autoplay, EffectCoverflow]}
 				className="w-full 2xl:w-3/4 px-8 mb-8 md:my-8 lg:my-20 flex flex-col 2xl:p-0 "
 			>
-				{data.map((product) => {
+				{cardOnCarousel.map((product) => {
 					return (
 						<SwiperSlide key={product.id_producto}>
 							<Card
