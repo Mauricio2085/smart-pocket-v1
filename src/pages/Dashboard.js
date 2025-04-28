@@ -30,7 +30,7 @@ const Dashboard = () => {
 					onClick={() => {
 						navigate("./crear-producto");
 					}}
-					className="px-4 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500"
+					className="w-40 px-4 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500"
 				>
 					crear producto
 				</button>
@@ -39,9 +39,9 @@ const Dashboard = () => {
 						logout();
 						navigate("/");
 					}}
-					className="w-20 ml-5 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500"
+					className="w-40 ml-5 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500"
 				>
-					Logout
+					Cerrar sesión
 				</button>
 			</section>
 			<div className=" px-8 md:px-12 xl:px-80 overflow-x-auto">

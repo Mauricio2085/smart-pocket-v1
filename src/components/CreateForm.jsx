@@ -61,7 +61,7 @@ const CreateForm = () => {
 			const categoryId = idCategorySelected(data.categoria_name);
 
 			const cleanData = {
-				nombre_producto: cleanerText(data.nombre_producto),
+				nombre_producto: data.nombre_producto,
 				imagen_producto: imageUrl,
 				descripcion: data.descripcion,
 				especificaciones: data.especificaciones,
@@ -72,7 +72,7 @@ const CreateForm = () => {
 				disponible: toBoolean(data.disponible),
 				destacado: toBoolean(data.destacado),
 				propietario: cleanerText(data.propietario),
-				nombre_comercial: cleanerText(data.nombre_comercial),
+				nombre_comercial: data.nombre_comercial,
 				precio_comercial: data.precio_comercial,
 			};
 			console.log("Clean data: ", cleanData);

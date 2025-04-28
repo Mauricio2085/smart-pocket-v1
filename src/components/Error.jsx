@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 const Error = ({ message, setErrorMessage }) => {
 	const navigate = useNavigate();
 	return (
-		<section className="w-full h-full text-base md:text-xl lg:text-3xl absolute top-0 left-0 flex z-10">
-			<div className="w-full p-20 flex flex-col font-DynaPuff bg-cyan-100 bg-opacity-90">
+		<section className="w-full h-60 text-base md:text-xl lg:text-3xl absolute top-0 left-0 flex z-10">
+			<div className="w-full px-8 py-10 flex flex-col font-DynaPuff bg-cyan-100 bg-opacity-90">
 				<h1 className="text-red-500 justify-center items-center mx-auto mb-10 font-medium">
 					{message}
 				</h1>
