@@ -16,18 +16,18 @@ const CreateProducts = () => {
 					onClick={() => {
 						navigate("/admin");
 					}}
-					className="w-28 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500"
+					className="w-40 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500"
 				>
-					dashboard
+					Panel de control
 				</button>
 				<button
 					onClick={() => {
 						logout();
-						navigate("/login");
+						navigate("/");
 					}}
-					className="w-20 ml-5 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500"
+					className="w-40 ml-5 h-8 border border-yellow-100 rounded-md bg-gradient-to-l from-cyan-500 to-blue-500"
 				>
-					Logout
+					Cerrar sesión
 				</button>
 			</section>
 			<div class=" relative px-8 md:px-40 py-10">

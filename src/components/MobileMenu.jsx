@@ -76,6 +76,17 @@ const MobileMenu = ({ visibility, setVisibility }) => {
 							Electrodomésticos
 						</li>
 					</NavLink>
+					<NavLink
+						to={`../categorias/accesorios/7`}
+						className={({ isActive }) =>
+							isActive ? "text-yellow-100 font-bold" : "text-white"
+						}
+						onClick={() => setVisibility(false)}
+					>
+						<li className="w-full transition delay-150 duration-500 ease-in-out hover:scale-110">
+							Accesorios
+						</li>
+					</NavLink>
 				</ul>
 			</div>
 		</section>
