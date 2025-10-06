@@ -31,21 +31,29 @@ const CategoryPage = () => {
 			<section className="w-full px-5 lg:px-36 flex font-DynaPuff ">
 				<span className=" hidden md:w-1/4 "></span>
 				<div className=" w-full flex flex-col items-center">
-					<section className="w-full px-8 pb-8 grid xl:grid-cols-2 xl:gap-6 border-slate-100 md:my-8 drop-shadow-md ">
-						{data.map((product) => {
-							return (
-								<Card
-									idProducto={product.id_producto}
-									imagenProducto={product.imagen_producto}
-									nombreProducto={product.nombre_producto}
-									precioOferta={product.precio_venta}
-									precioVenta={product.precio_comercial}
-									descripcionProducto={product.descripcion}
-									especificacionesProducto={product.especificaciones}
-								/>
-							);
-						})}
-					</section>
+					{data.length === 0 ? (
+						<div className=" w-full h-96 flex justify-center items-center ">
+							<h1 className="text-3xl text-center">
+								No hay productos de esta categoría en estos momentos
+							</h1>
+						</div>
+					) : (
+						<section className="w-full px-8 pb-8 grid xl:grid-cols-2 xl:gap-6 border-slate-100 md:my-8 drop-shadow-md ">
+							{data.map((product) => {
+								return (
+									<Card
+										idProducto={product.id_producto}
+										imagenProducto={product.imagen_producto}
+										nombreProducto={product.nombre_producto}
+										precioOferta={product.precio_venta}
+										precioVenta={product.precio_comercial}
+										descripcionProducto={product.descripcion}
+										especificacionesProducto={product.especificaciones}
+									/>
+								);
+							})}
+						</section>
+					)}
 				</div>
 			</section>
 		</>
