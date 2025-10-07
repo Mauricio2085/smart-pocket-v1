@@ -28,11 +28,11 @@ const CategoryPage = () => {
 			<section className=" w-full h-20 px-5 flex flex-col items-center justify-center bg-yellow-100 font-DynaPuff font-semibold text-xl m-auto">
 				<h1>Los mejores productos de {categoryName}</h1>
 			</section>
-			<section className="w-full px-5 lg:px-36 flex font-DynaPuff ">
+			<section className="w-full h-full px-5 lg:px-36 flex font-DynaPuff ">
 				<span className=" hidden md:w-1/4 "></span>
 				<div className=" w-full flex flex-col items-center">
 					{data.length === 0 ? (
-						<div className=" w-full h-96 flex justify-center items-center ">
+						<div className=" w-full h-[500px] flex justify-center items-center ">
 							<h1 className="text-3xl text-center">
 								No hay productos de esta categoría en estos momentos
 							</h1>

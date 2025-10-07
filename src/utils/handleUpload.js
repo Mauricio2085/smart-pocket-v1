@@ -1,12 +1,8 @@
 import axios from "axios";
 
 const uploadToCloudinary = async (file) => {
-	const isDemo = window.location.hostname.includes("localhost");
-	console.log("isDemo", isDemo);
-
-	const CLOUDINARY_URL = isDemo
-		? "https://api.cloudinary.com/v1_1/smartdemo/image/upload"
-		: "https://api.cloudinary.com/v1_1/smartpocket/image/upload";
+	const CLOUDINARY_URL =
+		"https://api.cloudinary.com/v1_1/smartpocket/image/upload";
 
 	const API_URL =
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
