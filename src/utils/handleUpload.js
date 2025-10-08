@@ -9,6 +9,7 @@ const uploadToCloudinary = async (file) => {
 	//Solicitar la firma segura al backend
 	const signatureResponse = await axios.get(`${API_URL}/get-signature`);
 	const { timestamp, signature, api_key } = await signatureResponse.data;
+	const folder = "smart_pocket";
 	try {
 		//Crear el FormData con la firma obtenida
 		const formData = new FormData();
@@ -16,6 +17,7 @@ const uploadToCloudinary = async (file) => {
 		formData.append("api_key", api_key);
 		formData.append("timestamp", timestamp);
 		formData.append("signature", signature);
+		formData.append("folder", folder);
 
 		//Subir la imagen a Cloudinary
 		const response = await axios.post(CLOUDINARY_URL, formData);
