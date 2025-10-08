@@ -1,7 +1,7 @@
 import React from "react";
-import smartSave from "../assets/smart_save.jpg";
-import smartBuy from "../assets/smart_buy.jpg";
-import smartQuality from "../assets/smart_quality.jpg";
+import smartSave from "../assets/save-money-finance-business.png";
+import smartBuy from "../assets/sales-shop-analytics.png";
+import smartQuality from "../assets/quality.png";
 const Public = () => {
 	return (
 		<section className=" my-8 lg:my-40 flex flex-col items-center justify-center font-DynaPuff ">
@@ -21,7 +21,7 @@ const Public = () => {
 						agoten!
 					</p>
 					<img
-						src={smartSave}
+						src={smartBuy}
 						alt=""
 						className="p-4 max-w-[200px] object-contain aspect-square"
 					/>
@@ -35,7 +35,7 @@ const Public = () => {
 						la caja!
 					</p>
 					<img
-						src={smartBuy}
+						src={smartQuality}
 						alt=""
 						className="p-4 max-w-[200px] object-contain aspect-square"
 					/>
@@ -48,7 +48,7 @@ const Public = () => {
 						¡Cuida tu bolsillo, compra smart!
 					</p>
 					<img
-						src={smartQuality}
+						src={smartSave}
 						alt=""
 						className="p-4 max-w-[200px] object-contain aspect-square"
 					/>
