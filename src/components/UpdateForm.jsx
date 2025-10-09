@@ -23,12 +23,17 @@ const UpdateForm = ({ product }) => {
 		}
 	};
 
-	console.log("Lo que llega al formulario de actualización: ", product);
-	const { register, handleSubmit, reset } = useForm();
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { isSubmitting },
+	} = useForm();
 	const [customFileName, setCustomFileName] = useState(
 		"Ningún archivo seleccionado"
 	);
 	const [filePhoto, setfilePhoto] = useState(null);
+	const [originalImageUrl, setOriginalImageUrl] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
 	const [successMessage, setSuccessMessage] = useState("");
 	const API_URL =
@@ -42,6 +47,23 @@ const UpdateForm = ({ product }) => {
 	};
 	const { cleanerText, toBoolean } = useCleaner();
 
+	const getBlobImageAsFile = async (imageProdutUrl) => {
+		try {
+			if (!imageProdutUrl) return null;
+			const response = await fetch(imageProdutUrl);
+			const blobImage = await response.blob();
+			const mimeType = blobImage.type;
+			const extension = mimeType.split("/")[1] || "jpg"; // Intenta obtener la extensión
+			const fileName = `imagen_descargada.${extension}`;
+			const file = new File([blobImage], fileName, { type: mimeType });
+			console.log("Objeto File creado para precarga:", file);
+			return file;
+		} catch (error) {
+			console.error("Error al descargar o convertir la imagen:", error);
+			return null;
+		}
+	};
+
 	const upLoadFile = (event) => {
 		const file = event.target.files[0];
 		setCustomFileName(
@@ -52,24 +74,50 @@ const UpdateForm = ({ product }) => {
 	};
 
 	useEffect(() => {
-		if (product) {
-			reset({
-				...product,
-				destacado: product.destacado ? "Si" : "No",
-				disponible: product.disponible ? "Si" : "No",
-				categoria_name: product.nombre_categoria,
-			});
-		}
+		const loadProductImage = async () => {
+			if (product && product.imagen_producto) {
+				setOriginalImageUrl(product.imagen_producto);
+
+				const file = await getBlobImageAsFile(product.imagen_producto);
+				if (file) {
+					// 2. Actualizar estados con el objeto File y su nombre
+					setfilePhoto(file);
+					setCustomFileName(`[Precargada] ${file.name}`); // Muestra el nombre en tu span
+
+					console.log("Foto descargada automáticamente y asignada a filePhoto");
+
+					reset({
+						...product,
+						destacado: product.destacado ? "Si" : "No",
+						disponible: product.disponible ? "Si" : "No",
+						categoria_name: product.nombre_categoria,
+					});
+				}
+			}
+		};
+		loadProductImage();
 	}, [product, reset]);
 
 	const onSubmit = async (data) => {
 		try {
-			// Cleaning error state
 			setErrorMessage("");
 			// Upload of product image
-			const image = filePhoto;
-			const imageUrl = await uploadToCloudinary(image);
-
+			const imageToUpload = filePhoto;
+			let imageUrl = originalImageUrl;
+			const fileWasManuallySelected =
+				!customFileName.startsWith("[Precargada]");
+			if (fileWasManuallySelected) {
+				console.log("Subiendo nueva imagen a Cloudinary...");
+				imageUrl = await uploadToCloudinary(imageToUpload);
+			} else if (!imageToUpload && !originalImageUrl) {
+				setErrorMessage("Debe haber una imagen para el producto.");
+				return;
+			} else {
+				console.log(
+					"Reutilizando imagen existente de Cloudinary:",
+					originalImageUrl
+				);
+			}
 			const categoryId = idCategorySelected(data.categoria_name);
 
 			const cleanData = {
@@ -216,7 +264,7 @@ const UpdateForm = ({ product }) => {
 						className=" mb-5 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none lg:text-sm lg:h-11"
 						required
 					>
-						<option value="" disabled selected>
+						<option value="" hidden>
 							Elige una opción
 						</option>
 						<option value="Aseo">Aseo</option>
@@ -276,7 +324,7 @@ const UpdateForm = ({ product }) => {
 						className=" mb-5 h-9 rounded-md bg-white pl-2 text-xs mx-3 focus:ring-2 focus:ring-cyan-500 outline-none lg:text-sm lg:h-11"
 						required
 					>
-						<option value="" disabled selected>
+						<option value="" hidden>
 							Elige una opción
 						</option>
 						<option value="Si">Si</option>
@@ -295,7 +343,7 @@ const UpdateForm = ({ product }) => {
 						className=" mb-5 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none lg:text-sm lg:h-11"
 						required
 					>
-						<option value="" disabled selected>
+						<option value="" hidden>
 							Elige una opción
 						</option>
 						<option value="Si">Si</option>
@@ -313,7 +361,7 @@ const UpdateForm = ({ product }) => {
 						className=" mb-5 h-9 rounded-md bg-white text-xs pl-2 mx-3 focus:ring-2 focus:ring-cyan-500 outline-none lg:text-sm lg:h-11"
 						required
 					>
-						<option value="" disabled selected>
+						<option value="" hidden>
 							Elige una opción
 						</option>
 						<option value="gloria">Gloria</option>
@@ -346,9 +394,36 @@ const UpdateForm = ({ product }) => {
 				</div>
 				<button
 					type="submit"
-					className=" my-3 mx-5 bg-yellow-100 rounded-md border-0 w-auto cursor-pointer text-base font-bold h-10 lg:self-center lg:text-lg lg:h-11"
+					className=" flex justify-center items-center my-3 mx-5 bg-yellow-100 rounded-md border-0 w-auto cursor-pointer text-base font-bold h-10 lg:self-center lg:text-lg lg:h-11"
+					disabled={isSubmitting}
 				>
-					Actualizar producto
+					{isSubmitting ? (
+						<>
+							<svg
+								className="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+							>
+								<circle
+									className="opacity-25"
+									cx="12"
+									cy="12"
+									r="10"
+									stroke="currentColor"
+									strokeWidth="4"
+								></circle>
+								<path
+									className="opacity-75"
+									fill="currentColor"
+									d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+								></path>
+							</svg>
+							Actualizando producto...
+						</>
+					) : (
+						<>Actualizar producto</>
+					)}
 				</button>
 			</form>
 		</>

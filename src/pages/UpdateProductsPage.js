@@ -44,7 +44,7 @@ const UpdateProductsPage = () => {
 					Cerrar sesión
 				</button>
 			</section>
-			<div class=" relative px-8 md:px-40 py-10">
+			<div className=" relative px-8 md:px-40 py-10">
 				<UpdateForm product={product} />
 			</div>
 		</>
