@@ -16,45 +16,47 @@ const Card = ({
 	return (
 		<>
 			<div
-				className={`w-full mt-8 rounded-md flex flex-col sm:grid sm:grid-cols-2 sm:gap-4 border border-slate-100 drop-shadow-md hover:shadow-yellow-100/50 hover:shadow-md ${paddingCarousel}`}
+				className={`w-full mt-8 rounded-2xl flex flex-col sm:grid sm:grid-cols-2 sm:gap-6 border border-slate-200 shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden bg-gradient-to-br from-white to-slate-50 ${paddingCarousel}`}
 			>
-				<div className="w-full flex justify-center sm:order-1 sm:row-span-3 ">
+				<div className="w-full flex justify-center sm:order-1 sm:row-span-3 bg-slate-100 rounded-2xl p-4 sm:rounded-l-2xl">
 					<img
-						className="w-full h-auto max-w-[300px] object-contain aspect-square rounded-lg"
+						className="w-full h-auto max-w-[300px] object-contain aspect-square rounded-lg hover:scale-105 transition-transform duration-300"
 						src={imagenProducto}
 						alt="Imagen"
 					/>
 				</div>
 				<div className="w-full flex flex-col justify-between order-1 sm:order-2 col-span-1">
-					<p className=" mt-5 px-2 text-xl md:text-[24px] 3xl:text-[36px] font-DynaPuff font-medium">
+					<p className="mt-6 px-4 text-xl md:text-[24px] 3xl:text-[36px] font-DynaPuff font-semibold text-gray-900">
 						{nombreProducto}
 					</p>
 				</div>
 				<div
-					className={`mt-5 px-2 text-sm md:text-[16px] 2xl:text-lg flex flex-col justify-between w-full order-3`}
+					className={`mt-6 px-4 text-sm md:text-[16px] 2xl:text-lg flex flex-col justify-between w-full order-3`}
 				>
-					<div className="flex justify-between w-full">
-						<p className=" md:text-md font-DynaPuff font-medium">
-							Precio normal
-						</p>
-						<p className=" md:text-md font-DynaPuff font-medium">Oferta</p>
-					</div>
-					<div className=" mt-2 flex flex-col justify-between">
-						<div className=" flex justify-between w-full ">
-							<p className=" font-DynaPuff font-extralight line-through text-red-500">
+					<div className="flex justify-between w-full gap-4">
+						<div className="flex flex-col">
+							<p className="md:text-sm font-DynaPuff font-medium text-gray-600 uppercase tracking-wide text-xs">
+								Precio normal
+							</p>
+							<p className="font-DynaPuff font-extralight line-through text-red-500 text-lg md:text-xl">
 								{formattedAmount(precioVenta)}
 							</p>
-							<p className=" font-DynaPuff font-extralight text-cyan-500">
+						</div>
+						<div className="flex flex-col text-right">
+							<p className="md:text-sm font-DynaPuff font-medium text-gray-600 uppercase tracking-wide text-xs">
+								Oferta
+							</p>
+							<p className="font-DynaPuff font-bold text-cyan-500 text-lg md:text-xl">
 								{formattedAmount(precioOferta)}
 							</p>
 						</div>
 					</div>
 				</div>
 				<div
-					className={`w-full h-10 mt-5 md:mb-0 order-4 md:col-span-1 md:col-start-2 self-end 0.5xl:pl-20 3xl:pl-30  rounded-md`}
+					className={`w-full my-6 order-4 md:col-span-1 md:col-start-2 self-end px-4`}
 				>
 					<button
-						className=" w-full h-full bg-cyan-500 rounded-md font-DynaPuff md:text-md font-medium"
+						className="w-full h-12 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl font-DynaPuff md:text-md font-semibold text-white shadow-md hover:shadow-lg hover:from-cyan-600 hover:to-cyan-700 active:scale-95 transition-all duration-200"
 						onClick={() =>
 							navigate(`../../productos/product-detail/${idProducto}`)
 						}
