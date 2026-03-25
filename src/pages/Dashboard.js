@@ -1,3 +1,4 @@
+import React from "react";
 import { useFetch } from "../hooks/useFetch";
 import { useAuth } from "../context/AuthContex";
 import { useNavigate, Link } from "react-router-dom";
@@ -13,15 +14,15 @@ const Dashboard = () => {
 		process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
 
 	const { data, loading, error } = useFetch(
-		`${API_URL}/admin/dashboard/summary`
+		`${API_URL}/admin/dashboard/summary`,
 	);
 
-	if (!!loading) return <Loading />;
-	if (!!error) return <Error />;
+	if (loading) return <Loading />;
+	if (error) return <Error />;
 
 	console.log(data);
 	return (
-		<>
+		<React.Fragment>
 			<section className=" w-full h-20 px-5 flex flex-col items-center justify-center bg-yellow-100 font-DynaPuff font-semibold text-xl m-auto">
 				<h1 className="mx-auto">panel de administración</h1>
 			</section>
@@ -63,6 +64,9 @@ const Dashboard = () => {
 								CANTIDAD
 							</th>
 							<th className="px-4 py-2 border text-center w-[100px] truncate">
+								PRECIO COMPRA UND
+							</th>
+							<th className="px-4 py-2 border text-center w-[100px] truncate">
 								PRECIO VENTA UND
 							</th>
 							<th className="px-4 py-2 border text-center truncate">
@@ -82,6 +86,9 @@ const Dashboard = () => {
 									</td>
 									<td className="px-4 py-2 border text-center w-[100px] truncate">
 										{product.cantidad}
+									</td>
+									<td className="px-4 py-2 border text-center w-[100px] truncate">
+										{product.costo_unitario}
 									</td>
 									<td className="px-4 py-2 border text-center w-[100px] truncate">
 										{product.precio_venta}
@@ -124,7 +131,7 @@ const Dashboard = () => {
 					</tbody>
 				</table>
 			</div>
-		</>
+		</React.Fragment>
 	);
 };
 
